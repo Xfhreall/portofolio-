@@ -6,7 +6,11 @@ import sidair from "@/public/project/sidair.png";
 import poros from "@/public/project/poros.png";
 
 export function ProjekParallax() {
-  return <HeroParallax products={products} />;
+  return (
+    <section id="project">
+      <HeroParallax products={products} />;
+    </section>
+  );
 }
 export const products = [
   {

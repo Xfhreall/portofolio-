@@ -9,7 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { MoonIcon, Sun } from "lucide-react";
 
 type navProps = {
   name: string;
@@ -41,7 +41,7 @@ export const FloatingNav = ({
     if (typeof current === "number") {
       const direction = current! - scrollYProgress.getPrevious()!;
 
-      if (scrollYProgress.get() < 0.3) {
+      if (scrollYProgress.get() < 0.2) {
         setVisible(false);
       } else {
         if (direction < 0) {
@@ -89,7 +89,7 @@ export const FloatingNav = ({
         >
           <span>
             {theme === "light" ? (
-              <SunIcon className="h-4 w-4 text-inherit dark:text-inherit" />
+              <Sun className="h-4 w-4 text-inherit dark:text-inherit" />
             ) : (
               <MoonIcon className="h-4 w-4 text-inherit dark:text-inherit" />
             )}

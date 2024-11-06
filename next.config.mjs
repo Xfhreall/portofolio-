@@ -5,6 +5,9 @@ const nextConfig = {
       {
         hostname: "aceternity.com",
       },
+      {
+        hostname: "i.pinimg.com",
+      },
     ],
   },
 };
