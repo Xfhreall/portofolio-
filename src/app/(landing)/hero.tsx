@@ -29,18 +29,15 @@ export function Hero() {
         className="absolute nav bottom-4 z-10 flex space-x-4"
       >
         {nav.map((prop, index) => (
-          <>
-            <div>
-              <Link
-                href={prop.link}
-                key={index}
-                className="z-50 transition-all duration-100 ease-in-out hover:border-b-2 dark:border-neutral-300 border-neutral-800"
-              >
-                {prop.title}
-              </Link>
-            </div>
-            {prop.title !== "Contact" && <span className="">|</span>}
-          </>
+          <div key={prop.title}>
+            <Link
+              href={prop.link}
+              className="z-50 transition-all duration-100 ease-in-out hover:border-b-2 dark:border-neutral-300 border-neutral-800"
+            >
+              {prop.title}
+            </Link>
+            {index < nav.length - 1 && <span className="ml-4">|</span>}
+          </div>
         ))}
       </motion.div>
     </>
