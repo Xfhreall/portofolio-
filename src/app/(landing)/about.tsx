@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { FlipWords } from "@/components/ui/flip-words";
 import Image from "next/image";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
@@ -22,9 +22,6 @@ type sosmedProps = {
 export function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60% 0px" });
-  useEffect(() => {
-    console.log("Element is in view: ", isInView);
-  }, [isInView]);
 
   const words = ["Sir!", "Miss!", "Friend!", "There!"];
   const sosmed: sosmedProps[] = [

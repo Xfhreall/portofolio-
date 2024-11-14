@@ -6,18 +6,18 @@ import four from "@/public/sidair/content2.png";
 export const sidair = [
   {
     asset: one,
-    thumbnail: "Sidar assets",
+    thumbnail: "Sidar",
   },
   {
     asset: two,
-    thumbnail: "Sidar assets",
+    thumbnail: "Sidar",
   },
   {
     asset: three,
-    thumbnail: "Sidar assets",
+    thumbnail: "Sidar",
   },
   {
     asset: four,
-    thumbnail: "Sidar assets",
+    thumbnail: "Sidar",
   },
 ];
