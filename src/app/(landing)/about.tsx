@@ -8,8 +8,8 @@ import {
   LinkedInLogoIcon,
   GitHubLogoIcon,
   InstagramLogoIcon,
-  TwitterLogoIcon,
 } from "@radix-ui/react-icons";
+import { RiTwitterXLine } from "react-icons/ri";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 
@@ -31,7 +31,7 @@ export function About() {
       thumbnail: "linkedin",
     },
     {
-      icon: TwitterLogoIcon,
+      icon: RiTwitterXLine,
       link: "https://x.com/ursnctuary",
       thumbnail: "x",
     },
@@ -112,9 +112,9 @@ export function About() {
               <p className="text-justify leading-7 text-xs md:text-base">
                 A software engineer based in Malang, Indonesia. I specialize in
                 <strong> front end development</strong>. I use technologies such
-                as react, vite, next, tailwind, and other technologies and tools
-                to add attractiveness, integrate systems, deploy, and maintain
-                applications. Additionally, I&apos;m a
+                as React, Vite, Next js, Tailwind, and other technologies and
+                tools to add attractiveness, integrate systems, deploy, and
+                maintain applications. Additionally, I&apos;m a
                 <strong>
                   {" "}
                   Computer Science student at Brawijaya University.

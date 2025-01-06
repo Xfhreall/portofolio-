@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { HeroParallax } from "@/components/ui/hero-parallax";
+import { Parallax } from "@/components/ui/project-parallax";
 import braciate from "@/public/project/braciate.png";
 import sidair from "@/public/project/sidair.png";
 import poros from "@/public/project/poros.png";
@@ -8,7 +8,7 @@ import poros from "@/public/project/poros.png";
 export function ProjekParallax() {
   return (
     <section id="project">
-      <HeroParallax products={products} />;
+      <Parallax products={products} />
     </section>
   );
 }

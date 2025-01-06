@@ -10,7 +10,7 @@ import {
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
-export const HeroParallax = ({
+export const Parallax = ({
   products,
 }: {
   products: {
@@ -57,7 +57,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -78,7 +78,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
+        <motion.div className="flex flex-row mb-20 space-x-20 ">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -137,7 +137,7 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className="group/product h-40 w-60 sm:h-60 sm:w-80 md:h-72 md:w-96 lg:h-80 lg:w-[28rem] relative flex-shrink-0"
     >
       <Link
         href={product.link}
@@ -152,7 +152,7 @@ export const ProductCard = ({
         />
       </Link>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black/30 pointer-events-none rounded-2xl"></div>
-      <h2 className="absolute bottom-4 font-semibold left-4 opacity-0 group-hover/product:opacity-100 dark:text-white text-black">
+      <h2 className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-2 sm:left-3 md:left-4 opacity-0 group-hover/product:opacity-100 dark:text-white text-black text-sm sm:text-base md:text-lg lg:text-xl font-semibold">
         {product.title}
       </h2>
     </motion.div>
