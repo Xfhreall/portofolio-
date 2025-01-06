@@ -11,7 +11,7 @@ import {
   GitHubLogoIcon,
   InstagramLogoIcon,
 } from "@radix-ui/react-icons";
-import { RiTwitterXLine, RiWhatsappLine } from "react-icons/ri";
+import { RiWhatsappLine } from "react-icons/ri";
 
 export default function ImprovedContact() {
   const [name, setName] = useState("");
@@ -39,10 +39,10 @@ export default function ImprovedContact() {
 
   const handleWhatsAppSend = () => {
     if (!isFormValid) return;
-    const text = encodeURIComponent(
-      `Halo saya ${name}, dengan email ${email}\n\n${message}`
+    window.open(
+      `https://api.whatsapp.com/send?phone=6289643657149&text=Halo%20Farel!%0ASaya%20*${name}*%2C%20dengan%20email%20${email}%0A%0A%22${message}%22`,
+      "_blank"
     );
-    window.open(`https://wa.me/+6289643657149?text=${text}`, "_blank");
   };
 
   const socialLinks = [
@@ -60,11 +60,6 @@ export default function ImprovedContact() {
       icon: InstagramLogoIcon,
       username: "arfah.real_",
       url: "https://www.instagram.com/yourusername",
-    },
-    {
-      icon: RiTwitterXLine,
-      username: "ursnctuary",
-      url: "https://twitter.com/yourusername",
     },
   ];
 
@@ -149,17 +144,19 @@ export default function ImprovedContact() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 onClick={handleEmailSend}
-                className="w-full sm:w-1/2 text-sm sm:text-base py-2"
+                className="w-full sm:w-1/2 text-sm sm:text-base py-2 flex items-center justify-center"
                 disabled={!isFormValid}
               >
-                <Mail className="mr-2 h-4 w-4" /> Kirim Email
+                <Mail className="h-4 w-4" />
+                Kirim Email
               </Button>
               <Button
                 onClick={handleWhatsAppSend}
-                className="w-full sm:w-1/2 bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800 text-sm sm:text-base py-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-1/2 bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800 text-sm sm:text-base py-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                 disabled={!isFormValid}
               >
-                <RiWhatsappLine className="mr-2 h-5 w-5" /> Kirim WhatsApp
+                <RiWhatsappLine className="h-5 w-5" />
+                Kirim WhatsApp
               </Button>
             </div>
           </form>
