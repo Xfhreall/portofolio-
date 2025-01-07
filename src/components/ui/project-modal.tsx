@@ -24,9 +24,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <DialogTitle className="text-xl sm:text-2xl font-bold">
             {project.name}
           </DialogTitle>
-          <DialogDescription className="text-sm sm:text-base text-muted-foreground">
-            {project.description}
-          </DialogDescription>
         </DialogHeader>
         <div className="flex-grow overflow-y-auto space-y-4 pr-2">
           <div className="flex justify-between items-center">
@@ -55,7 +52,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               src={project.imageUrl}
               alt={project.name}
               layout="fill"
-              objectFit="cover"
+              objectFit="contain"
               className="rounded-md"
             />
           </div>
@@ -72,9 +69,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
           {project.longDescription && (
             <div className="max-h-40 overflow-y-auto">
-              <p className="text-xs sm:text-sm text-muted-foreground">
+              <DialogDescription className="text-xs sm:text-sm text-muted-foreground">
                 {project.longDescription}
-              </p>
+              </DialogDescription>
             </div>
           )}
         </div>

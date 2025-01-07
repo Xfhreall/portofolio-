@@ -7,9 +7,18 @@ import {
   SiTypescript,
   SiNextdotjs,
   SiShadcnui,
-  SiPostgresql,
+  SiMysql,
 } from "react-icons/si";
-import { FaGolang } from "react-icons/fa6";
+import { FaSass } from "react-icons/fa6";
+import React from "react";
+import {
+  ViteIcon,
+  GoIcon,
+  PostgresIcon,
+  NextAuthIcon,
+  FramerIcon,
+  SpringIcon,
+} from "./SvgIcon";
 
 export function getTechIcon(tech: string) {
   const iconClass = "w-5 h-5 sm:w-6 sm:h-6";
@@ -32,9 +41,22 @@ export function getTechIcon(tech: string) {
     case "shadcn ui":
       return <SiShadcnui className={`${iconClass} text-foreground`} />;
     case "postgresql":
-      return <SiPostgresql className={`${iconClass} text-[#336791]`} />;
+      return <PostgresIcon className={iconClass} />;
     case "golang":
-      return <FaGolang className={`${iconClass} text-[#00ADD8]`} />;
+      return <GoIcon className={iconClass} />;
+    case "mysql":
+      return <SiMysql className={`${iconClass} text-[#4479A1]`} />;
+    case "nextauth.js":
+      return <NextAuthIcon className={iconClass} />;
+    case "vite":
+      return <ViteIcon className={iconClass} />;
+    case "sass":
+      return <FaSass className={`${iconClass} text-[#CC6699]`} />;
+    case "framer":
+      return <FramerIcon className={iconClass} />;
+    case "react-spring":
+      return <SpringIcon className={iconClass} />;
+
     default:
       return null;
   }

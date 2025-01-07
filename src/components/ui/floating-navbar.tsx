@@ -37,7 +37,6 @@ export const FloatingNav = ({
   const [visible, setVisible] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
       const direction = current! - scrollYProgress.getPrevious()!;
 
@@ -68,7 +67,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit  fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-3xl  shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] py-4 px-8  items-center justify-center space-x-4 backdrop-blur-lg",
+          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-3xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[49] py-4 px-8  items-center justify-center space-x-4 backdrop-blur-lg",
           className
         )}
       >
@@ -83,6 +82,24 @@ export const FloatingNav = ({
             <span className="block">{navItem.icon}</span>
           </Link>
         ))}
+      </motion.div>
+      <motion.div
+        initial={{
+          opacity: 1,
+          x: 100,
+        }}
+        animate={{
+          x: visible ? 0 : 100,
+          opacity: visible ? 1 : 0,
+        }}
+        transition={{
+          duration: 0.2,
+        }}
+        className={cn(
+          "flex max-w-fit fixed top-1/2 sm:top-10 right-0 mx-auto border-y border-l border-transparent dark:border-white/40 rounded-l-3xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[49] py-4 pl-6 pr-4  items-center justify-center backdrop-blur-lg",
+          className
+        )}
+      >
         <button
           className="relative dark:text-neutral-50 items-center flex text-neutral-800 dark:hover:text-neutral-800 hover:text-neutral-100 border-2 p-2 rounded-full border-black/30 dark:border-white/40 hover:bg-neutral-800 dark:hover:bg-white transition duration-300 ease-in-out"
           onClick={toggleTheme}

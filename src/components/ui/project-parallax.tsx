@@ -147,7 +147,7 @@ export const ProductCard = ({
           src={product.thumbnail}
           height="600"
           width="600"
-          className="object-cover group-hover/product:object-contain object-center absolute h-full w-full inset-0 transition-all duration-1000 ease-in-out rounded-2xl"
+          className="object-contain group-hover/product:object-contain object-center absolute h-full w-full inset-0 transition-all duration-1000 ease-in-out rounded-2xl"
           alt={product.title}
         />
       </Link>

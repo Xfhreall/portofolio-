@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { getTechIcon } from "@/lib/icon/techIcon";
 import { Smartphone, Monitor } from "lucide-react";
-import { SiGithub } from "react-icons/si";
+import { TbExternalLink } from "react-icons/tb";
 import { Badge } from "@/components/ui/badge";
 import { ProjectCardProps } from "@/lib/project";
 
@@ -19,7 +19,7 @@ export function ProjectCard({ project, onViewMore }: ProjectCardProps) {
           src={project.imageUrl}
           alt={project.name}
           layout="fill"
-          objectFit="cover"
+          objectFit="contain"
         />
       </div>
       <CardContent className="p-4 flex-grow">
@@ -68,10 +68,10 @@ export function ProjectCard({ project, onViewMore }: ProjectCardProps) {
           <Button
             variant="outline"
             className="flex-1 text-xs sm:text-sm"
-            onClick={() => window.open(project.repoUrl, "_blank")}
+            onClick={() => window.open(project.url, "_blank")}
           >
-            <SiGithub className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-            Repository
+            <TbExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+            Visit
           </Button>
           <Button
             variant="default"
