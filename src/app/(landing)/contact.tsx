@@ -40,7 +40,7 @@ export default function ImprovedContact() {
   const handleWhatsAppSend = () => {
     if (!isFormValid) return;
     window.open(
-      `https://api.whatsapp.com/send?phone=6289643657149&text=Halo%20Farel!%0ASaya%20*${name}*%2C%20dengan%20email%20${email}%0A%0A%22${message}%22`,
+      `https://api.whatsapp.com/send?phone=6289643657149&text=Halo%20Farel!%0ASaya%20*${name}*%2C%20dengan%20email%20${email}%0A%0A${message}`,
       "_blank"
     );
   };
