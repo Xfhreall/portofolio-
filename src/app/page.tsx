@@ -12,7 +12,7 @@ export default function Home() {
         <Hero />
         <div className="absolute inset-0  bg-gradient-to-t from-white/20 dark:from-black/40 to-transparent pointer-events-none" />
       </section>
-      <section className="relative overflow-hidden h-screen">
+      <section className="relative overflow-hidden min-h-screen">
         <About />
         <div className="absolute inset-0 h-1/5 bg-gradient-to-b from-white/80 dark:from-black/80 to-transparent pointer-events-none" />
       </section>
