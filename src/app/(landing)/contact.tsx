@@ -67,7 +67,7 @@ export default function ImprovedContact() {
 
   return (
     <section
-      className="py-8 sm:py-16 bg-background text-foreground transition-colors duration-300"
+      className="py-8 sm:py-16 text-foreground transition-colors duration-300 bg-background h-full"
       id="contact"
     >
       <div className="container mx-auto px-4 max-w-4xl py-6">

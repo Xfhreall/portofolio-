@@ -21,7 +21,7 @@ export default function Home() {
         <ProjekParallax />
         <ProjectShowcase />
       </section>
-      <section className="relative min-h-screen bg-background">
+      <section className="relative">
         <Contact />
       </section>
       <section className="relative">
