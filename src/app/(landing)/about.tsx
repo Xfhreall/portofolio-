@@ -49,11 +49,11 @@ export function About() {
 
   return (
     <section className="min-h-screen" id="about">
-      <div className="h-full w-full bg-inherit dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center space-y-4">
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <div className="min-h-screen w-full bg-inherit dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center space-y-4">
+        <div className="absolute min-h-screen pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <div
           ref={ref}
-          className="flex justify-center flex-col md:flex-row items-center h-full max-w-screen-lg mx-auto px-4 bg-transparent backdrop-blur-[2px] py-14"
+          className="flex justify-center flex-col md:flex-row items-center min-h-screen max-w-screen-lg mx-auto px-4 bg-transparent backdrop-blur-[2px] py-14"
         >
           <div className="w-full sm:w-1/2 flex flex-col items-center mb-8 md:mb-0">
             <motion.div
