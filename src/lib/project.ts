@@ -55,7 +55,7 @@ export const Projects: Project[] = [
     name: "Portfolio Website",
     description: "A personal portfolio showcasing my projects and skills",
     techStack: ["Next js", "TypeScript", "Tailwind", "Framer"],
-    repoUrl: "https://github.com/yourusername/portfolio",
+    repoUrl: "https://myportofolio-website.vercel.app/",
     imageUrl: porto,
     longDescription:
       "A responsive portfolio website built with Next JS, TypeScript, and Tailwind CSS. It features a modern design, smooth animations, and showcases my projects and skills.",
@@ -77,7 +77,7 @@ export const Projects: Project[] = [
       "PostgreSQL",
       "Golang",
     ],
-    repoUrl: "https://github.com/yourusername/ecommerce",
+    repoUrl: "https://github.com/Xfhreall/braciate-fe",
     imageUrl: braciate,
     longDescription:
       "lorem ipsum dolor sit amet, consectetur adip iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -91,7 +91,7 @@ export const Projects: Project[] = [
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     techStack: ["Next js", "TypeScript", "Tailwind", "MySQL", "Framer"],
-    repoUrl: "https://github.com/yourusername/portfolio",
+    repoUrl: "https://github.com/porosub/Poros-Web-Home-3.0",
     imageUrl: poros,
     longDescription:
       "lorem ipsum dolor sit amet, consectetur adip iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -105,7 +105,7 @@ export const Projects: Project[] = [
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     techStack: ["Next js", "TypeScript", "Tailwind", "Framer"],
-    repoUrl: "https://github.com/yourusername/ecommerce",
+    repoUrl: "https://github.com/Xfhreall/waisely",
     imageUrl: waisely,
     longDescription:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -119,7 +119,7 @@ export const Projects: Project[] = [
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     techStack: ["Next js", "TypeScript", "Tailwind", "Framer", "React-Spring"],
-    repoUrl: "https://github.com/yourusername/portfolio",
+    repoUrl: "https://github.com/Xfhreall/sidair-web",
     imageUrl: sidair,
     longDescription:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -133,7 +133,7 @@ export const Projects: Project[] = [
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     techStack: ["Next js", "TypeScript", "Tailwind", "Framer"],
-    repoUrl: "https://github.com/yourusername/ecommerce",
+    repoUrl: "https://github.com/Xfhreall/parkeer-mobile",
     imageUrl: parkeer,
     longDescription:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -147,7 +147,7 @@ export const Projects: Project[] = [
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     techStack: ["Next js", "TypeScript", "Tailwind", "Framer"],
-    repoUrl: "https://github.com/yourusername/portfolio",
+    repoUrl: "https://github.com/Xfhreall/lapbooking-mobile",
     imageUrl: lapbooking,
     longDescription:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -161,7 +161,7 @@ export const Projects: Project[] = [
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     techStack: ["Vite", "Javascript", "Sass"],
-    repoUrl: "https://github.com/yourusername/ecommerce",
+    repoUrl: "https://github.com/Xfhreall/ArtTimes",
     imageUrl: art,
     longDescription:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
