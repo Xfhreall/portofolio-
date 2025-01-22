@@ -109,7 +109,7 @@ export const Projects: Project[] = [
     imageUrl: waisely,
     longDescription:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    role: ["Tech Leader"],
+    role: ["Front End"],
     platforms: ["desktop", "mobile"],
     url: "https://waisely.vercel.app/",
   },
@@ -137,7 +137,7 @@ export const Projects: Project[] = [
     imageUrl: parkeer,
     longDescription:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    role: ["Tech Leader"],
+    role: ["Front End"],
     platforms: ["mobile"],
     url: "https://parkeer-apps.vercel.app/",
   },
@@ -165,7 +165,7 @@ export const Projects: Project[] = [
     imageUrl: art,
     longDescription:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    role: ["Tech Leader"],
+    role: ["Front End", "Product Manager"],
     platforms: ["desktop"],
     url: "https://xfhreall.github.io/project1/",
   },
