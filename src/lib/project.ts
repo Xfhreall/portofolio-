@@ -66,8 +66,7 @@ export const Projects: Project[] = [
   {
     id: 2,
     name: "Braciate: Brawijaya Appreciate",
-    description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    description: "bentar yh msh mikir kata-kata nya:))",
     techStack: [
       "Next js",
       "Tailwind",
@@ -88,8 +87,7 @@ export const Projects: Project[] = [
   {
     id: 3,
     name: "POROS Website",
-    description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    description: "bentar yh msh mikir kata-kata nya:))",
     techStack: ["Next js", "TypeScript", "Tailwind", "MySQL", "Framer"],
     repoUrl: "https://github.com/porosub/Poros-Web-Home-3.0",
     imageUrl: poros,
@@ -102,13 +100,11 @@ export const Projects: Project[] = [
   {
     id: 4,
     name: "Waisely",
-    description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    description: "bentar yh msh mikir kata-kata nya:))",
     techStack: ["Next js", "TypeScript", "Tailwind", "Framer"],
     repoUrl: "https://github.com/Xfhreall/waisely",
     imageUrl: waisely,
-    longDescription:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    longDescription: "bentar yh msh mikir kata-kata nya:))",
     role: ["Front End"],
     platforms: ["desktop", "mobile"],
     url: "https://waisely.vercel.app/",
@@ -116,13 +112,11 @@ export const Projects: Project[] = [
   {
     id: 5,
     name: "Sidair",
-    description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    description: "bentar yh msh mikir kata-kata nya:))",
     techStack: ["Next js", "TypeScript", "Tailwind", "Framer", "React-Spring"],
     repoUrl: "https://github.com/Xfhreall/sidair-web",
     imageUrl: sidair,
-    longDescription:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    longDescription: "bentar yh msh mikir kata-kata nya:))",
     role: ["Front End"],
     platforms: ["mobile", "desktop"],
     url: "https://sidair.vercel.app/",
@@ -130,13 +124,11 @@ export const Projects: Project[] = [
   {
     id: 6,
     name: "Parkeer",
-    description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    description: "bentar yh msh mikir kata-kata nya:))",
     techStack: ["Next js", "TypeScript", "Tailwind", "Framer"],
     repoUrl: "https://github.com/Xfhreall/parkeer-mobile",
     imageUrl: parkeer,
-    longDescription:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    longDescription: "bentar yh msh mikir kata-kata nya:))",
     role: ["Front End"],
     platforms: ["mobile"],
     url: "https://parkeer-apps.vercel.app/",
@@ -144,13 +136,11 @@ export const Projects: Project[] = [
   {
     id: 7,
     name: "Lapbooking",
-    description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    description: "bentar yh msh mikir kata-kata nya:))",
     techStack: ["Next js", "TypeScript", "Tailwind", "Framer"],
     repoUrl: "https://github.com/Xfhreall/lapbooking-mobile",
     imageUrl: lapbooking,
-    longDescription:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    longDescription: "bentar yh msh mikir kata-kata nya:))",
     role: ["Front End"],
     platforms: ["mobile"],
     url: "https://lapbooking-mobile.vercel.app/lapangan/kelola",
@@ -158,13 +148,11 @@ export const Projects: Project[] = [
   {
     id: 8,
     name: "Art Times",
-    description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    description: "bentar yh msh mikir kata-kata nya:))",
     techStack: ["Vite", "Javascript", "Sass"],
     repoUrl: "https://github.com/Xfhreall/ArtTimes",
     imageUrl: art,
-    longDescription:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    longDescription: "bentar yh msh mikir kata-kata nya:))",
     role: ["Front End", "Product Manager"],
     platforms: ["desktop"],
     url: "https://xfhreall.github.io/project1/",
