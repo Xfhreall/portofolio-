@@ -13,8 +13,8 @@ export function ProjectCard({ project, onViewMore }: ProjectCardProps) {
   const remainingRolesCount = project.role.length - maxRolesToShow;
 
   return (
-    <Card className="overflow-hidden border-border hover:bg-accent transition-colors flex flex-col h-full">
-      <div className="relative h-48 w-full">
+    <Card className="overflow-hidden border-border hover:bg-accent transition-colors flex flex-col h-full w-full">
+      <div className="relative h-48 w-full mt-4">
         <Image
           src={project.imageUrl}
           alt={project.name}

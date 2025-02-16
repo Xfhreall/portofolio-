@@ -88,7 +88,14 @@ export const Projects: Project[] = [
     id: 3,
     name: "POROS Website",
     description: "bentar yh msh mikir kata-kata nya:))",
-    techStack: ["Next js", "TypeScript", "Tailwind", "MySQL", "Framer"],
+    techStack: [
+      "Next js",
+      "TypeScript",
+      "Tailwind",
+      "MySQL",
+      "Framer",
+      "Golang",
+    ],
     repoUrl: "https://github.com/porosub/Poros-Web-Home-3.0",
     imageUrl: poros,
     longDescription:
