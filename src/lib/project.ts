@@ -66,7 +66,8 @@ export const Projects: Project[] = [
   {
     id: 2,
     name: "Braciate: Brawijaya Appreciate",
-    description: "bentar yh msh mikir kata-kata nya:))",
+    description:
+      "Brawijaya Appreciate is a flagship program of the Ministry of Internal Affairs, EM UB 2024",
     techStack: [
       "Next js",
       "Tailwind",
@@ -79,7 +80,7 @@ export const Projects: Project[] = [
     repoUrl: "https://github.com/Xfhreall/braciate-fe",
     imageUrl: braciate,
     longDescription:
-      "lorem ipsum dolor sit amet, consectetur adip iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "Brawijaya Appreciate is a flagship program organized by the Ministry of Internal Affairs, EM UB 2024, aimed at fostering harmony and collaboration among various organizations within Universitas Brawijaya. The program consists of three main stages: pre-event, main event, and post-event. The highlight of the event features captivating performances from student activity units (UKM) at Universitas Brawijaya, showcasing the diverse talents and creativity within the campus community. An integrated authentication system with official authentication from Brawijaya University allowed control for every Brawijaya student to contribute to the event.",
     role: ["Tech Leader", "Front End", "Scrum Master", "Product Manager"],
     platforms: ["desktop", "mobile"],
     url: "https://braciate-eight.vercel.app/",
