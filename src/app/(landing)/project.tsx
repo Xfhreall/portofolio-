@@ -6,9 +6,9 @@ import { Projects } from "@/lib/project";
 
 export function ProjekParallax() {
   return (
-    <section id="project">
+    <div id="project">
       <Parallax products={products} />
-    </section>
+    </div>
   );
 }
 const items = Projects;

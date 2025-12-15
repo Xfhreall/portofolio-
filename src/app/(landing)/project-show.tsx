@@ -12,7 +12,7 @@ export function ProjectShowcase() {
   const [currentPage, setCurrentPage] = useState(1);
   const [projectsPerPage, setProjectsPerPage] = useState(6);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60% 0px" });
+  const isInView = useInView(ref, { once: true, margin: "-30% 0px" });
 
   const totalPages = Math.ceil(Projects.length / projectsPerPage);
 
