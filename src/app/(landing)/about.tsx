@@ -9,7 +9,6 @@ import {
   GitHubLogoIcon,
   InstagramLogoIcon,
 } from "@radix-ui/react-icons";
-import { RiTwitterXLine } from "react-icons/ri";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 
@@ -29,11 +28,6 @@ export function About() {
       icon: LinkedInLogoIcon,
       link: "https://www.linkedin.com/in/risqi-achmad-fahreal-a2b7a4289/",
       thumbnail: "linkedin",
-    },
-    {
-      icon: RiTwitterXLine,
-      link: "https://x.com/ursnctuary",
-      thumbnail: "x",
     },
     {
       icon: InstagramLogoIcon,
