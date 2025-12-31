@@ -50,7 +50,7 @@ export function ProjectShowcase() {
         ref={ref}
       >
         <motion.div
-          className="flex mb-6 sm:mb-8"
+          className="flex mb-6 sm:mb-8 flex-col"
           initial={{ x: -50, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -58,6 +58,9 @@ export function ProjectShowcase() {
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
             Projects
           </h2>
+          <p className="text-sm text-muted-foreground mt-1">
+            Last updated: Oct 2024
+          </p>
         </motion.div>
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mb-8"
