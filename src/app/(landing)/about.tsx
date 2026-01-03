@@ -36,7 +36,7 @@ export function About() {
     },
     {
       icon: GitHubLogoIcon,
-      link: "https://github.com/",
+      link: "https://github.com/Xfhreall",
       thumbnail: "github",
     },
   ];
