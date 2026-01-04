@@ -100,13 +100,13 @@ export default function ContactPage() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
             Get In{' '}
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Touch
             </span>
           </h1>
-          <p className="max-w-xl mx-auto text-neutral-400">
+          <p className="max-w-xl mx-auto text-neutral-500 dark:text-neutral-400">
             Have a project in mind? Let&apos;s create something amazing together.
           </p>
         </motion.div>
@@ -120,7 +120,7 @@ export default function ContactPage() {
             className="lg:col-span-2 space-y-6"
           >
             <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-semibold text-white mb-6">Connect With Me</h3>
+              <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6">Connect With Me</h3>
             </motion.div>
 
             <div className="space-y-3">
@@ -131,9 +131,9 @@ export default function ContactPage() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex items-center gap-4 p-4 rounded-xl bg-neutral-900/50 border border-neutral-800/50 backdrop-blur-sm transition-all duration-300 ${link.color}`}
+                  className={`group flex items-center gap-4 p-4 rounded-xl bg-neutral-100/50 dark:bg-neutral-900/50 border border-neutral-200/50 dark:border-neutral-800/50 backdrop-blur-sm transition-all duration-300 ${link.color}`}
                 >
-                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-neutral-800/80 group-hover:bg-transparent transition-colors">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-neutral-200/80 dark:bg-neutral-800/80 group-hover:bg-transparent transition-colors">
                     <link.icon className="h-5 w-5" />
                   </div>
                   <div className="flex-1">
@@ -147,10 +147,10 @@ export default function ContactPage() {
             {/* Quick Info */}
             <motion.div
               variants={itemVariants}
-              className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-neutral-900/80 to-neutral-900/40 border border-neutral-800/50 backdrop-blur-sm"
+              className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-neutral-100/80 to-neutral-100/40 dark:from-neutral-900/80 dark:to-neutral-900/40 border border-neutral-200/50 dark:border-neutral-800/50 backdrop-blur-sm"
             >
-              <h4 className="text-lg font-semibold text-white mb-3">Quick Response</h4>
-              <p className="text-neutral-400 text-sm leading-relaxed">
+              <h4 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3">Quick Response</h4>
+              <p className="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed">
                 I typically respond within 24 hours. For urgent matters, please reach out via WhatsApp.
               </p>
             </motion.div>
@@ -164,23 +164,23 @@ export default function ContactPage() {
             className="lg:col-span-3"
           >
             <form
-              className="p-6 md:p-8 rounded-2xl bg-neutral-900/50 border border-neutral-800/50 backdrop-blur-xl space-y-6"
+              className="p-6 md:p-8 rounded-2xl bg-neutral-100/50 dark:bg-neutral-900/50 border border-neutral-200/50 dark:border-neutral-800/50 backdrop-blur-xl space-y-6"
               onSubmit={(e) => e.preventDefault()}
             >
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-neutral-300">Name</Label>
+                  <Label htmlFor="name" className="text-neutral-600 dark:text-neutral-300">Name</Label>
                   <Input
                     id="name"
                     placeholder="Your name"
                     value={name}
                     required
                     onChange={(e) => setName(e.target.value)}
-                    className="bg-neutral-800/50 border-neutral-700/50 text-white placeholder:text-neutral-500 focus:border-purple-500/50 focus:ring-purple-500/20"
+                    className="bg-neutral-200/50 dark:bg-neutral-800/50 border-neutral-300/50 dark:border-neutral-700/50 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-purple-500/50 focus:ring-purple-500/20"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-neutral-300">Email</Label>
+                  <Label htmlFor="email" className="text-neutral-600 dark:text-neutral-300">Email</Label>
                   <Input
                     id="email"
                     type="email"
@@ -188,20 +188,20 @@ export default function ContactPage() {
                     placeholder="your@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="bg-neutral-800/50 border-neutral-700/50 text-white placeholder:text-neutral-500 focus:border-purple-500/50 focus:ring-purple-500/20"
+                    className="bg-neutral-200/50 dark:bg-neutral-800/50 border-neutral-300/50 dark:border-neutral-700/50 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-purple-500/50 focus:ring-purple-500/20"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message" className="text-neutral-300">Message</Label>
+                <Label htmlFor="message" className="text-neutral-600 dark:text-neutral-300">Message</Label>
                 <Textarea
                   id="message"
                   placeholder="Tell me about your project..."
                   value={message}
                   required
                   onChange={(e) => setMessage(e.target.value)}
-                  className="bg-neutral-800/50 border-neutral-700/50 text-white placeholder:text-neutral-500 focus:border-purple-500/50 focus:ring-purple-500/20 min-h-[150px] resize-none"
+                  className="bg-neutral-200/50 dark:bg-neutral-800/50 border-neutral-300/50 dark:border-neutral-700/50 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-purple-500/50 focus:ring-purple-500/20 min-h-[150px] resize-none"
                 />
               </div>
 

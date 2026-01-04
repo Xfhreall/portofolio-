@@ -35,7 +35,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       className="group relative h-full"
     >
       <Link href={`/project/${project.id}`}>
-        <div className="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-neutral-800/50 backdrop-blur-sm transition-all duration-500 hover:border-neutral-700/50 hover:bg-neutral-900/80 h-full flex flex-col">
+        <div className="relative overflow-hidden rounded-2xl bg-neutral-100/50 dark:bg-neutral-900/50 border border-neutral-200/50 dark:border-neutral-800/50 backdrop-blur-sm transition-all duration-500 hover:border-neutral-300/50 dark:hover:border-neutral-700/50 hover:bg-neutral-100/80 dark:hover:bg-neutral-900/80 h-full flex flex-col">
           {/* Image Container */}
           <div className="relative h-40 sm:h-48 overflow-hidden flex-shrink-0">
             <Image
@@ -44,7 +44,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-neutral-100 dark:from-neutral-900 via-neutral-100/50 dark:via-neutral-900/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
             
             {/* Role Badges */}
             <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 sm:gap-2">
@@ -67,10 +67,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {/* Content */}
           <div className="p-4 sm:p-5 flex flex-col flex-1">
             <div className="flex-1">
-              <h3 className="text-base sm:text-lg font-semibold text-white group-hover:text-neutral-100 transition-colors line-clamp-1">
+              <h3 className="text-base sm:text-lg font-semibold text-neutral-900 dark:text-white group-hover:text-neutral-800 dark:group-hover:text-neutral-100 transition-colors line-clamp-1">
                 {project.name}
               </h3>
-              <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-neutral-400 line-clamp-2 leading-relaxed">
+              <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 line-clamp-2 leading-relaxed">
                 {project.description}
               </p>
             </div>
@@ -80,13 +80,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               {project.techStack.slice(0, 3).map((tech) => (
                 <span
                   key={tech}
-                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-medium text-neutral-300 bg-neutral-800/80 rounded-md border border-neutral-700/50"
+                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-medium text-neutral-600 dark:text-neutral-300 bg-neutral-200/80 dark:bg-neutral-800/80 rounded-md border border-neutral-300/50 dark:border-neutral-700/50"
                 >
                   {tech}
                 </span>
               ))}
               {project.techStack.length > 3 && (
-                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-medium text-neutral-500 bg-neutral-800/50 rounded-md">
+                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-medium text-neutral-400 dark:text-neutral-500 bg-neutral-200/50 dark:bg-neutral-800/50 rounded-md">
                   +{project.techStack.length - 3}
                 </span>
               )}

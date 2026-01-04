@@ -58,7 +58,7 @@ export function About() {
             >
               <HoverBorderGradient
                 containerClassName="rounded-full"
-                className="dark:bg-black bg-white text-black size-[298px] dark:text-white cursor-default aspect-square"
+                className="dark:bg-black bg-white text-black size-[298px] dark:text-white cursor-default aspect-square border border-black"
               >
                       <PixelatedCanvas
         src="https://i.ibb.co.com/Fkzd1dG9/Screenshot-from-2026-01-04-21-30-07-removebg-preview.png"

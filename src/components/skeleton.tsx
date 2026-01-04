@@ -11,7 +11,7 @@ export function Skeleton({ className }: SkeletonProps) {
   return (
     <div
       className={cn(
-        'animate-pulse rounded-md bg-neutral-800/50',
+        'animate-pulse rounded-md bg-neutral-200 dark:bg-neutral-800/50',
         className
       )}
     />
@@ -20,7 +20,7 @@ export function Skeleton({ className }: SkeletonProps) {
 
 export function ProjectCardSkeleton() {
   return (
-    <div className="rounded-2xl bg-neutral-900/50 border border-neutral-800/50 overflow-hidden">
+    <div className="rounded-2xl bg-neutral-100 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800/50 overflow-hidden">
       {/* Image Skeleton */}
       <Skeleton className="h-48 md:h-56 w-full rounded-none" />
       
@@ -67,7 +67,7 @@ export function ProjectGridSkeleton() {
 
 export function CMSProjectSkeleton() {
   return (
-    <div className="flex items-center gap-4 p-4 bg-neutral-900/50 border border-neutral-800 rounded-xl">
+    <div className="flex items-center gap-4 p-4 bg-neutral-100 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 rounded-xl">
       {/* Thumbnail */}
       <Skeleton className="w-16 h-16 rounded-lg flex-shrink-0" />
       

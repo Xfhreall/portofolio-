@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { cn } from '../lib/utils';
 import { Home, Code2Icon, Phone } from 'lucide-react';
+import { ThemeSwitcher } from './theme-switcher';
 
 const navLinks = [
 	{ icon: Home, href: '/', label: 'Home' },
@@ -28,7 +29,7 @@ export function FloatingNavbar() {
 			className="fixed bottom-6 left-0 right-0 z-50 flex justify-center pointer-events-none"
 		>
 			<motion.div 
-				className="flex items-center gap-1 py-2 px-3 rounded-full border border-neutral-800/50 bg-neutral-900/80 backdrop-blur-2xl shadow-2xl shadow-black/50 pointer-events-auto"
+				className="flex items-center gap-1 py-2 px-3 rounded-full border border-neutral-200 dark:border-neutral-800/50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-2xl shadow-2xl shadow-black/10 dark:shadow-black/50 pointer-events-auto"
 				whileHover={{ scale: 1.02 }}
 				transition={{ type: 'spring', stiffness: 400, damping: 25 }}
 			>
@@ -44,15 +45,15 @@ export function FloatingNavbar() {
 								className={cn(
 									'relative flex items-center justify-center w-11 h-11 rounded-full transition-all duration-300',
 									isActive
-										? 'text-white'
-										: 'text-neutral-400 hover:text-neutral-200',
+										? 'text-neutral-900 dark:text-white'
+										: 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200',
 								)}
 							>
 								<Icon className="h-[18px] w-[18px] relative z-10" />
 								{isActive && (
 									<motion.div
 										layoutId="activeNavIndicator"
-										className="absolute inset-0 rounded-full bg-gradient-to-br from-neutral-700/80 to-neutral-800/80 border border-neutral-600/30"
+										className="absolute inset-0 rounded-full bg-gradient-to-br from-neutral-200/80 to-neutral-300/80 dark:from-neutral-700/80 dark:to-neutral-800/80 border border-neutral-300/50 dark:border-neutral-600/30"
 										transition={{
 											type: 'spring',
 											stiffness: 400,
@@ -64,6 +65,12 @@ export function FloatingNavbar() {
 						</Link>
 					);
 				})}
+				
+				{/* Divider */}
+				<div className="w-px h-6 bg-neutral-300 dark:bg-neutral-700/50 mx-1" />
+				
+				{/* Theme Switcher */}
+				<ThemeSwitcher />
 			</motion.div>
 		</motion.nav>
 	);
