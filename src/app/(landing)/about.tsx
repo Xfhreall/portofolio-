@@ -2,7 +2,6 @@
 
 import React, { useRef } from "react";
 import { FlipWords } from "@/components/ui/flip-words";
-import Image from "next/image";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import {
   LinkedInLogoIcon,
@@ -11,6 +10,7 @@ import {
 } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
+import { PixelatedCanvas } from "@/components/ui/pixel-canvas";
 
 type sosmedProps = {
   icon: React.ElementType;
@@ -58,15 +58,29 @@ export function About() {
             >
               <HoverBorderGradient
                 containerClassName="rounded-full"
-                className="dark:bg-black bg-white text-black dark:text-white cursor-default"
+                className="dark:bg-black bg-white text-black size-[298px] dark:text-white cursor-default aspect-square"
               >
-                <Image
-                  src="https://i.pinimg.com/originals/82/0a/31/820a31ebc7a75832858aed4f0db952fb.jpg"
-                  className="rounded-full border-2 hover:brightness-75 transition-all h-48 md:h-60 w-auto"
-                  alt="Profile picture"
-                  width={400}
-                  height={400}
-                />
+                      <PixelatedCanvas
+        src="https://i.ibb.co.com/Fkzd1dG9/Screenshot-from-2026-01-04-21-30-07-removebg-preview.png"
+        width={290}
+        height={290}
+        cellSize={3}
+        dotScale={0.9}
+        shape="square"
+        backgroundColor="#000000"
+        dropoutStrength={0}
+        interactive
+        distortionStrength={3}
+        distortionRadius={80}
+        distortionMode="swirl"
+        followSpeed={0.2}
+        jitterStrength={5}
+        jitterSpeed={5}
+        sampleAverage
+        tintColor="#FFFFFF"
+        tintStrength={0.1}
+        className="rounded-full brightness-110"
+      />
               </HoverBorderGradient>
             </motion.div>
             <motion.div
@@ -85,7 +99,7 @@ export function About() {
             </motion.div>
           </div>
           <motion.div
-            className="w-full sm:w-1/2 space-y-8"
+            className="w-full sm:w-1/2 space-y-6"
             initial={{ x: 50, opacity: 0 }}
             animate={isInView ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -102,19 +116,41 @@ export function About() {
                   Let&apos;s get started.
                 </span>
               </div>
-              <p className="text-justify leading-7 text-xs md:text-base">
+              <p className="text-justify leading-8 text-xs md:text-base">
                 A software engineer based in Malang, Indonesia. I specialize in
                 <strong> front end development</strong>. I use technologies such
-                as React, Vite, Next js, Tailwind, and other technologies and
+                as React, Laravel, Next js, Tanstack Start, Expo, Kotlin, and other technologies and
                 tools to add attractiveness, integrate systems, deploy, and
                 maintain applications. Additionally, I&apos;m a
                 <strong>
                   {" "}
-                  Computer Science student at Brawijaya University.
+                  Informatics Engineering student at Brawijaya University.
                 </strong>
               </p>
             </div>
-            <div className="icon flex gap-4">
+            <div className="flex gap-4 items-center">
+              <HoverBorderGradient
+                as="a"
+                containerClassName="rounded-full"
+                className="dark:bg-black bg-white text-black dark:text-white flex items-center gap-2 px-4 py-2"
+                {...{ href: "/cv.pdf", download:true }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  />
+                </svg>
+                Resume
+              </HoverBorderGradient>
               {sosmed.map((sosmed, index) => (
                 <Link
                   key={index}
@@ -126,6 +162,7 @@ export function About() {
                   <sosmed.icon className="h-6 w-6 hover:scale-110 duration-300 transition ease-in-out" />
                 </Link>
               ))}
+              
             </div>
           </motion.div>
         </div>

@@ -71,7 +71,7 @@ export default function ProjectPage() {
             animate={{ opacity: 1 }}
             className="text-center py-20"
           >
-            <p className="text-neutral-400 text-lg">No projects yet. Check back soon!</p>
+            <p className="text-neutral-400 text-lg">No contents yet. Check back soon.</p>
           </motion.div>
         )}
 
