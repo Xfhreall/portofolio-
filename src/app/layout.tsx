@@ -31,6 +31,8 @@ export const metadata: Metadata = {
     "JavaScript",
     "TypeScript",
     "Tailwind CSS",
+    "Porto",
+    "Mobile developer",
   ],
   authors: [{ name: "Risqi Achmad Fahreal", url: "https://github.com/Xfhreall" }],
   creator: "Risqi Achmad Fahreal",
