@@ -1,45 +1,17 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ProjectCard } from '@/components/project-card'
 import { ProjectGridSkeleton } from '@/components/skeleton'
 import { ArrowRight } from 'lucide-react'
-
-interface Project {
-  id: string
-  name: string
-  description: string
-  techStack: string[]
-  url: string
-  repoUrl: string
-  imageUrl: string
-  role: string[]
-  isFeatured: boolean
-  order: number
-}
+import { useProjects } from '@/hooks/useProjects'
 
 export default function ProjectPage() {
-  const [projects, setProjects] = useState<Project[]>([])
-  const [loading, setLoading] = useState(true)
+  const { projects: allProjects, isLoading: loading } = useProjects({ featured: true })
+  // Limit to 3 projects
+  const projects = allProjects.slice(0, 3)
 
-  useEffect(() => {
-    async function fetchProjects() {
-      try {
-        // Fetch only featured projects
-        const res = await fetch('/api/projects?featured=true')
-        const data = await res.json()
-        // Limit to 3 projects
-        setProjects(data.slice(0, 3))
-      } catch (error) {
-        console.error('Failed to fetch projects:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchProjects()
-  }, [])
 
   return (
     <div className="min-h-screen pb-8 w-full bg-inherit dark:bg-grid-white/[0.02] bg-grid-black/[0.02] relative">
@@ -48,7 +20,7 @@ export default function ProjectPage() {
         <div className="absolute top-0 left-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-purple-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-3xl" />
       </div>
-      
+
       <div className="absolute min-h-screen pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
       <div className="relative z-10 container mx-auto px-4 py-20">
@@ -103,7 +75,7 @@ export default function ProjectPage() {
             transition={{ delay: 0.5 }}
             className="mt-12 flex justify-center"
           >
-            <Link 
+            <Link
               href="/project/all"
               className="group inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
             >

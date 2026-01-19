@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  
+
   if (pathname.startsWith('/cms')) {
     const isCmsEnabled = process.env.ENABLE_CMS === 'true'
     if (!isCmsEnabled && process.env.NODE_ENV === 'production') {
@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
       }
     }
   }
-  
+
   return NextResponse.next()
 }
 
