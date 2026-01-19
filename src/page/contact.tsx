@@ -57,7 +57,7 @@ export default function ContactPage() {
       icon: LinkedInLogoIcon,
       username: "Risqi Achmad Fahreal",
       url: "https://www.linkedin.com/in/risqi-achmad-fahreal-a2b7a4289/",
-      color: "hover:text-white hover:bg-blue-600",
+      color: "hover:text-white hover:bg-blue-600 dark:hover:bg-blue-500",
     },
     {
       icon: InstagramLogoIcon,

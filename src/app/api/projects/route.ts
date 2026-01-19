@@ -25,6 +25,8 @@ export async function POST(request: Request) {
 
     const body = await request.json()
     
+    console.log('Creating project with data:', JSON.stringify(body, null, 2))
+    
     const project = await prisma.project.create({
       data: {
         name: body.name,
@@ -32,7 +34,7 @@ export async function POST(request: Request) {
         longDescription: body.longDescription || null,
         techStack: body.techStack || [],
         url: body.url,
-        repoUrl: body.repoUrl,
+        repoUrl: body.repoUrl || "-",
         imageUrl: body.imageUrl,
         role: body.role || [],
       }
@@ -40,6 +42,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(project, { status: 201 })
   } catch (error) {
+    console.error('Full error object:', error)
     console.error('Failed to create project:', error)
     return NextResponse.json({ error: 'Failed to create project' }, { status: 500 })
   }

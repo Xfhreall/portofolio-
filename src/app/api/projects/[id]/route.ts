@@ -9,7 +9,7 @@ export async function GET(
   try {
     const { id } = await params
     const project = await prisma.project.findUnique({
-      where: { id: parseInt(id) }
+      where: { id: id }
     })
 
     if (!project) {
@@ -39,7 +39,7 @@ export async function PUT(
     const body = await request.json()
 
     const project = await prisma.project.update({
-      where: { id: parseInt(id) },
+      where: { id: id },
       data: {
         name: body.name,
         description: body.description,
@@ -73,7 +73,7 @@ export async function DELETE(
 
     const { id } = await params
     await prisma.project.delete({
-      where: { id: parseInt(id) }
+      where: { id: id }
     })
 
     return NextResponse.json({ success: true })

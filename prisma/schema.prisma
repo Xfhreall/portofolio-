@@ -7,13 +7,13 @@ datasource db {
 }
 
 model Project {
-  id              Int      @id @default(autoincrement())
+  id              String   @id @default(uuid())
   name            String
   description     String
   longDescription String?
   techStack       String[]
   url             String
-  repoUrl         String
+  repoUrl         String?
   imageUrl        String
   role            String[]
   createdAt       DateTime @default(now())

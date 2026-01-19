@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { ArrowLeftIcon, ExternalLinkIcon, GithubIcon, Loader2Icon } from 'lucide-react'
+import { ArrowLeftIcon, ExternalLinkIcon, Loader2Icon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface Project {
@@ -70,6 +70,8 @@ export default function ProjectDetailPage() {
       <div className="absolute min-h-screen pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
       <div className="relative z-10 container mx-auto px-4 py-8 sm:py-12 md:py-20">
+
+        <div className="max-w-4xl mx-auto">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -85,14 +87,12 @@ export default function ProjectDetailPage() {
             Back
           </Button>
         </motion.div>
-
-        <div className="max-w-4xl mx-auto">
           {/* Hero Image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="relative h-48 sm:h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden mb-6 sm:mb-8"
+            className="relative h-48 sm:h-64 md:h-80 lg:h-[500px] rounded-2xl overflow-hidden mb-6 sm:mb-8"
           >
             <Image
               src={project.imageUrl}
@@ -134,11 +134,12 @@ export default function ProjectDetailPage() {
             </h1>
 
             {/* Description */}
-            <div className="prose prose-neutral dark:prose-invert max-w-none">
-              <p className="text-sm sm:text-base md:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
-                {project.longDescription || project.description}
-              </p>
-            </div>
+            <div 
+              className="prose prose-sm sm:prose-base md:prose-lg prose-neutral dark:prose-invert max-w-none prose-headings:text-neutral-900 dark:prose-headings:text-white prose-p:text-neutral-600 dark:prose-p:text-neutral-300 prose-a:text-purple-500 hover:prose-a:text-purple-400 prose-strong:text-neutral-800 dark:prose-strong:text-neutral-200 prose-code:bg-neutral-200 dark:prose-code:bg-neutral-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-neutral-200 dark:prose-pre:bg-neutral-800 prose-blockquote:border-purple-500"
+              dangerouslySetInnerHTML={{ 
+                __html: project.longDescription || `<p>${project.description}</p>` 
+              }}
+            />
 
             {/* Tech Stack */}
             <div>
@@ -160,15 +161,9 @@ export default function ProjectDetailPage() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
               <Link href={project.url} target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
-                <Button className="w-full sm:w-auto bg-purple-600 hover:bg-purple-700 h-11 sm:h-12 px-6 sm:px-8">
+                <Button className="w-full sm:w-auto  hover:brightness-75 h-11 sm:h-12 px-6 sm:px-8 transition-all duration-300">
                   <ExternalLinkIcon className="w-4 h-4 mr-2" />
                   View Live Demo
-                </Button>
-              </Link>
-              <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
-                <Button variant="outline" className="w-full sm:w-auto border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 h-11 sm:h-12 px-6 sm:px-8">
-                  <GithubIcon className="w-4 h-4 mr-2" />
-                  View Source Code
                 </Button>
               </Link>
             </div>

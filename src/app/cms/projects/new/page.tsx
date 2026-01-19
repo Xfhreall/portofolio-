@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import { RichTextEditor } from '@/components/ui/rich-text-editor'
 import { ArrowLeftIcon, Loader2Icon, PlusIcon, XIcon } from 'lucide-react'
 
 export default function NewProjectPage() {
@@ -44,6 +45,7 @@ export default function NewProjectPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+    console.log(form)
 
     try {
       const res = await fetch('/api/projects', {
@@ -110,11 +112,9 @@ export default function NewProjectPage() {
           {/* Long Description */}
           <div>
             <label className="block text-sm font-medium text-neutral-300 mb-2">Long Description (optional)</label>
-            <textarea
+            <RichTextEditor
               value={form.longDescription}
-              onChange={(e) => setForm({ ...form, longDescription: e.target.value })}
-              rows={4}
-              className="w-full px-4 py-3 bg-neutral-900 border border-neutral-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 resize-none"
+              onChange={(value) => setForm({ ...form, longDescription: value })}
             />
           </div>
 
@@ -147,7 +147,7 @@ export default function NewProjectPage() {
             <div>
               <label className="block text-sm font-medium text-neutral-300 mb-2">Repository URL</label>
               <input
-                type="url"
+                type="string"
                 value={form.repoUrl}
                 onChange={(e) => setForm({ ...form, repoUrl: e.target.value })}
                 className="w-full px-4 py-3 bg-neutral-900 border border-neutral-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50"
