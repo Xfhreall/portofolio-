@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
-
+import { SquareArrowOutUpRightIcon } from 'lucide-react'
 interface Project {
   id: string
   name: string
@@ -34,6 +34,15 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       }}
       className="group relative h-full"
     >
+      <motion.div 
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className='absolute z-20 top-3 right-3 bg-neutral-100/50 dark:bg-neutral-900/50 backdrop-blur-sm p-2 rounded-full border border-neutral-200/50 dark:border-neutral-800/50 transition-all hover:bg-neutral-200/80 dark:hover:bg-neutral-800/80'
+      >
+        <a href={project.url} target="_blank" rel="noopener noreferrer" className="block">
+          <SquareArrowOutUpRightIcon className="size-4" />
+        </a>
+      </motion.div>
       <Link href={`/project/${project.id}`}>
         <div className="relative overflow-hidden rounded-2xl bg-neutral-100/50 dark:bg-neutral-900/50 border border-neutral-200/50 dark:border-neutral-800/50 backdrop-blur-sm transition-all duration-500 hover:border-neutral-300/50 dark:hover:border-neutral-700/50 hover:bg-neutral-100/80 dark:hover:bg-neutral-900/80 h-full flex flex-col">
           {/* Image Container */}

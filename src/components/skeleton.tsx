@@ -111,3 +111,64 @@ export function CMSGridSkeleton() {
     </motion.div>
   )
 }
+
+export function ProjectDetailSkeleton() {
+  return (
+    <div className="min-h-screen w-full bg-inherit dark:bg-grid-white/[0.02] bg-grid-black/[0.02] relative pb-8">
+      {/* Background Effects */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="absolute min-h-screen pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+
+      <div className="relative z-10 container mx-auto px-4 py-8 sm:py-12 md:py-20">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="max-w-4xl mx-auto"
+        >
+          {/* Back Button */}
+          <Skeleton className="h-10 w-24 mb-6 sm:mb-8 rounded-lg" />
+
+          {/* Hero Image */}
+          <Skeleton className="h-48 sm:h-64 md:h-80 lg:h-[500px] w-full rounded-2xl mb-6 sm:mb-8" />
+
+          {/* Content */}
+          <div className="space-y-6 sm:space-y-8">
+            {/* Title */}
+            <Skeleton className="h-8 sm:h-10 md:h-12 w-3/4" />
+
+            {/* Description */}
+            <div className="space-y-3">
+              <Skeleton className="h-4 sm:h-5 w-full" />
+              <Skeleton className="h-4 sm:h-5 w-full" />
+              <Skeleton className="h-4 sm:h-5 w-5/6" />
+              <Skeleton className="h-4 sm:h-5 w-4/5" />
+              <Skeleton className="h-4 sm:h-5 w-3/4" />
+            </div>
+
+            {/* Tech Stack */}
+            <div>
+              <Skeleton className="h-4 w-24 mb-4" />
+              <div className="flex flex-wrap gap-2 sm:gap-3">
+                <Skeleton className="h-8 sm:h-10 w-20 rounded-lg" />
+                <Skeleton className="h-8 sm:h-10 w-24 rounded-lg" />
+                <Skeleton className="h-8 sm:h-10 w-16 rounded-lg" />
+                <Skeleton className="h-8 sm:h-10 w-28 rounded-lg" />
+                <Skeleton className="h-8 sm:h-10 w-20 rounded-lg" />
+              </div>
+            </div>
+
+            {/* Button */}
+            <div className="pt-4">
+              <Skeleton className="h-11 sm:h-12 w-40 rounded-lg" />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  )
+}
+

@@ -6,8 +6,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { ArrowLeftIcon, ExternalLinkIcon, Loader2Icon } from 'lucide-react'
+import { ArrowLeftIcon, ExternalLinkIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { ProjectDetailSkeleton } from '@/components/skeleton'
 
 interface Project {
   id: number
@@ -48,11 +49,7 @@ export default function ProjectDetailPage() {
   }, [params.id, router])
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-neutral-50 dark:bg-neutral-950">
-        <Loader2Icon className="w-8 h-8 text-purple-400 animate-spin" />
-      </div>
-    )
+    return <ProjectDetailSkeleton />
   }
 
   if (!project) {

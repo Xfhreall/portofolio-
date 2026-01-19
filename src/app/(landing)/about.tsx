@@ -78,7 +78,7 @@ export function About() {
         jitterSpeed={5}
         sampleAverage
         tintColor="#FFFFFF"
-        tintStrength={0.1}
+        tintStrength={0.12}
         className="rounded-full brightness-110"
       />
               </HoverBorderGradient>
