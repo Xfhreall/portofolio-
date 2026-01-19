@@ -101,7 +101,7 @@ export default function ProjectDetailPage() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-neutral-100/80 dark:from-neutral-900/80 via-transparent to-transparent" />
+   
             
             {/* Role Badges */}
             <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-wrap gap-2">

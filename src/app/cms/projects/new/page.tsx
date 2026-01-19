@@ -20,6 +20,7 @@ export default function NewProjectPage() {
     repoUrl: '',
     imageUrl: '',
     role: [] as string[],
+    isFeatured: false,
   })
   const router = useRouter()
 
@@ -207,6 +208,20 @@ export default function NewProjectPage() {
                 </button>
               ))}
             </div>
+          </div>
+
+          {/* Featured */}
+          <div>
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={form.isFeatured}
+                onChange={(e) => setForm({ ...form, isFeatured: e.target.checked })}
+                className="w-5 h-5 rounded border-neutral-700 bg-neutral-900 text-purple-600 focus:ring-purple-500/50"
+              />
+              <span className="text-sm font-medium text-neutral-300">Featured Project</span>
+            </label>
+            <p className="text-xs text-neutral-500 mt-1 ml-8">Featured projects will be shown on the main project page</p>
           </div>
 
           {/* Submit */}

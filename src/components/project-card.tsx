@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 interface Project {
-  id: number
+  id: string
   name: string
   description: string
   techStack: string[]

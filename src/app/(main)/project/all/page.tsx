@@ -5,7 +5,8 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ProjectCard } from '@/components/project-card'
 import { ProjectGridSkeleton } from '@/components/skeleton'
-import { ArrowRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { ArrowLeftIcon } from 'lucide-react'
 
 interface Project {
   id: string
@@ -20,18 +21,16 @@ interface Project {
   order: number
 }
 
-export default function ProjectPage() {
+export default function AllProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function fetchProjects() {
       try {
-        // Fetch only featured projects
-        const res = await fetch('/api/projects?featured=true')
+        const res = await fetch('/api/projects')
         const data = await res.json()
-        // Limit to 3 projects
-        setProjects(data.slice(0, 3))
+        setProjects(data)
       } catch (error) {
         console.error('Failed to fetch projects:', error)
       } finally {
@@ -51,7 +50,24 @@ export default function ProjectPage() {
       
       <div className="absolute min-h-screen pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
-      <div className="relative z-10 container mx-auto px-4 py-20">
+      <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">
+        {/* Back Button */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link href="/project">
+            <Button
+              variant="ghost"
+              className="mb-6 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
+            >
+              <ArrowLeftIcon className="w-4 h-4 mr-2" />
+              Back to Featured
+            </Button>
+          </Link>
+        </motion.div>
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -60,7 +76,7 @@ export default function ProjectPage() {
           className="text-center mb-16 md:mb-20"
         >
           <h1 className="text-3xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
-            Featured{' '}
+            All{' '}
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
               Projects
             </span>
@@ -77,7 +93,7 @@ export default function ProjectPage() {
             animate={{ opacity: 1 }}
             className="text-center py-20"
           >
-            <p className="text-neutral-500 dark:text-neutral-400 text-lg">No featured projects yet. Check back soon.</p>
+            <p className="text-neutral-500 dark:text-neutral-400 text-lg">No projects yet. Check back soon.</p>
           </motion.div>
         )}
 
@@ -94,28 +110,7 @@ export default function ProjectPage() {
             ))}
           </motion.div>
         )}
-
-        {/* View All Projects Link */}
-        {!loading && projects.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="mt-12 flex justify-center"
-          >
-            <Link 
-              href="/project/all"
-              className="group inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
-            >
-              <span className="text-sm font-medium border-b border-current pb-0.5">
-                View all projects
-              </span>
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </motion.div>
-        )}
       </div>
     </div>
   )
 }
-

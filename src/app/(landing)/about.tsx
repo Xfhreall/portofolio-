@@ -133,7 +133,7 @@ export function About() {
                 as="a"
                 containerClassName="rounded-full"
                 className="dark:bg-black bg-white text-black dark:text-white flex items-center gap-2 px-4 py-2"
-                {...{ href: "/cv.pdf", download:true }}
+                {...{ href: "/CV_Risqi Achmad Fahreal.pdf", download:true }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

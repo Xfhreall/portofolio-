@@ -2,10 +2,17 @@ import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/db'
 import { cookies } from 'next/headers'
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    const { searchParams } = new URL(request.url)
+    const featured = searchParams.get('featured')
+    
     const projects = await prisma.project.findMany({
-      orderBy: { createdAt: 'desc' }
+      where: featured === 'true' ? { isFeatured: true } : undefined,
+      orderBy: [
+        { order: 'asc' },
+        { createdAt: 'desc' }
+      ]
     })
     return NextResponse.json(projects)
   } catch (error) {
@@ -37,6 +44,8 @@ export async function POST(request: Request) {
         repoUrl: body.repoUrl || "-",
         imageUrl: body.imageUrl,
         role: body.role || [],
+        isFeatured: body.isFeatured || false,
+        order: body.order || 0,
       }
     })
 
