@@ -8,9 +8,15 @@ import {
   GitHubLogoIcon,
   InstagramLogoIcon,
 } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useScroll,
+  useTransform,
+  useSpring,
+} from "framer-motion";
 import { PixelatedCanvas } from "@/components/ui/pixel-canvas";
+import { getTechIcon } from "@/lib/icon/techIcon";
 
 type sosmedProps = {
   icon: React.ElementType;
@@ -18,8 +24,52 @@ type sosmedProps = {
   thumbnail: string;
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as number[] },
+  },
+};
+
+const socialIconVariants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      delay: i * 0.1,
+      ease: [0.16, 1, 0.3, 1] as number[],
+    },
+  }),
+};
+
+const techItems = [
+  "react",
+  "typescript",
+  "next js",
+  "tailwind",
+  "javascript",
+  "shadcn ui",
+  "framer",
+  "vite",
+];
+const techItemsDoubled = [...techItems, ...techItems];
+const techItemsReversed = [...techItemsDoubled].reverse();
+
 export function About() {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-30% 0px" });
 
   const words = ["Sir!", "Miss!", "Friend!", "There!"];
@@ -41,18 +91,50 @@ export function About() {
     },
   ];
 
+  // Image parallax
+  const { scrollYProgress: imageScrollProgress } = useScroll({
+    target: imageRef,
+    offset: ["start end", "end start"],
+  });
+  const imageY = useSpring(
+    useTransform(imageScrollProgress, [0, 1], [-20, 20]),
+    { stiffness: 300, damping: 30 }
+  );
+  const imageScale = useTransform(
+    imageScrollProgress,
+    [0, 0.5, 1],
+    [1.05, 1, 1.05]
+  );
+
+  // Tech strip scroll
+  const { scrollYProgress: stripProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const stripX1 = useTransform(stripProgress, [0, 1], [0, -120]);
+  const stripX2 = useTransform(stripProgress, [0, 1], [0, 120]);
+
   return (
-    <div className="min-h-screen w-full bg-inherit dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center space-y-4" id="about">
-      <div className="absolute min-h-screen pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+    <div
+      className="min-h-screen w-full bg-inherit dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center space-y-4"
+      id="about"
+    >
+      <div className="absolute min-h-screen pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+
       <div
         ref={ref}
         className="flex justify-center flex-col md:flex-row items-center min-h-screen max-w-screen-lg mx-auto px-4 bg-transparent backdrop-blur-[2px] py-14"
       >
-        <div className="w-full sm:w-1/2 flex flex-col items-center mb-8 md:mb-0">
+        {/* Left Column - Image */}
+        <div
+          ref={imageRef}
+          className="w-full sm:w-1/2 flex flex-col items-center mb-8 md:mb-0"
+        >
           <motion.div
-            initial={{ filter: "blur(100px)", opacity: 0, scale: 2 }}
+            style={{ y: imageY, scale: imageScale }}
+            initial={{ filter: "blur(100px)", opacity: 0 }}
             animate={
-              isInView ? { filter: "blur(0px)", opacity: 1, scale: 1 } : {}
+              isInView ? { filter: "blur(0px)", opacity: 1 } : {}
             }
             transition={{ duration: 1 }}
           >
@@ -83,11 +165,13 @@ export function About() {
               />
             </HoverBorderGradient>
           </motion.div>
+
           <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-4"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-4 text-center md:text-left"
           >
             <h2 className="text-xl md:text-3xl font-semibold">
               Risqi <br className="hidden md:block" />
@@ -98,13 +182,20 @@ export function About() {
             </p>
           </motion.div>
         </div>
+
+        {/* Right Column - Text */}
         <motion.div
           className="w-full sm:w-1/2 space-y-6"
-          initial={{ x: 50, opacity: 0 }}
-          animate={isInView ? { x: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10% 0px" }}
         >
-          <div className="text space-y-4">
+          {/* Greeting */}
+          <motion.div
+            variants={itemVariants}
+            className="text space-y-4"
+          >
             <div className="border-b-2 pb-2 border-neutral-500">
               <span className="text-2xl md:text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-100">
                 Hello
@@ -116,19 +207,29 @@ export function About() {
                 Let&apos;s get started.
               </span>
             </div>
-            <p className="text-justify leading-8 text-xs md:text-base">
-              A software engineer based in Malang, Indonesia. I specialize in
-              <strong> front end development</strong>. I use technologies such
-              as React, Laravel, Next js, Tanstack Start, Expo, Kotlin, and other technologies and
-              tools to add attractiveness, integrate systems, deploy, and
-              maintain applications. Additionally, I&apos;m a
-              <strong>
-                {" "}
-                Informatics Engineering student at Brawijaya University.
-              </strong>
-            </p>
-          </div>
-          <div className="flex gap-4 items-center">
+          </motion.div>
+
+          {/* Bio */}
+          <motion.p
+            variants={itemVariants}
+            className="text-justify leading-8 text-xs md:text-base"
+          >
+            A software engineer based in Malang, Indonesia. I specialize in
+            <strong> front end development</strong>. I use technologies such
+            as React, Laravel, Next js, Tanstack Start, Expo, Kotlin, and other technologies and
+            tools to add attractiveness, integrate systems, deploy, and
+            maintain applications. Additionally, I&apos;m a
+            <strong>
+              {" "}
+              Informatics Engineering student at Brawijaya University.
+            </strong>
+          </motion.p>
+
+          {/* Resume + Social Links */}
+          <motion.div
+            variants={itemVariants}
+            className="flex gap-4 items-center"
+          >
             <HoverBorderGradient
               as="a"
               containerClassName="rounded-full"
@@ -151,21 +252,78 @@ export function About() {
               </svg>
               Resume
             </HoverBorderGradient>
-            {sosmed.map((sosmed, index) => (
-              <Link
+
+            {sosmed.map((item, index) => (
+              <motion.a
                 key={index}
-                href={sosmed.link}
+                href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-all duration-300 hover:text-primary-500"
+                custom={index}
+                variants={socialIconVariants}
+                whileHover={{ scale: 1.15, rotate: 8 }}
+                whileTap={{ scale: 0.9 }}
+                className="dark:text-neutral-400 text-neutral-600 hover:text-neutral-900 dark:hover:text-white transition-colors duration-300"
               >
-                <sosmed.icon className="h-6 w-6 hover:scale-110 duration-300 transition ease-in-out" />
-              </Link>
+                <item.icon className="h-6 w-6" />
+              </motion.a>
             ))}
-
-          </div>
+          </motion.div>
         </motion.div>
       </div>
+
+      {/* Tech Stack Strip */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-10% 0px" }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="w-full overflow-hidden py-6 border-t border-neutral-200/50 dark:border-neutral-800/50"
+      >
+        {/* Row 1: slides left on scroll */}
+        <motion.div
+          style={{ x: stripX1 }}
+          className="flex gap-3 mb-3 w-max"
+        >
+          {techItemsDoubled.map((tech, i) => {
+            const icon = getTechIcon(tech);
+            return (
+              <motion.div
+                key={`row1-${i}`}
+                whileHover={{ y: -4, scale: 1.05 }}
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex-shrink-0 cursor-default"
+              >
+                {icon && <span className="flex-shrink-0">{icon}</span>}
+                <span className="text-xs font-medium text-neutral-600 dark:text-neutral-400 capitalize">
+                  {tech}
+                </span>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Row 2: slides right on scroll */}
+        <motion.div
+          style={{ x: stripX2 }}
+          className="flex gap-3 w-max"
+        >
+          {techItemsReversed.map((tech, i) => {
+            const icon = getTechIcon(tech);
+            return (
+              <motion.div
+                key={`row2-${i}`}
+                whileHover={{ y: -4, scale: 1.05 }}
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex-shrink-0 cursor-default"
+              >
+                {icon && <span className="flex-shrink-0">{icon}</span>}
+                <span className="text-xs font-medium text-neutral-600 dark:text-neutral-400 capitalize">
+                  {tech}
+                </span>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

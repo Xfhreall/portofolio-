@@ -63,7 +63,7 @@ export default function ContactPage() {
       icon: InstagramLogoIcon,
       username: "arfah.real_",
       url: "https://www.instagram.com/arfah.real_",
-      color: "hover:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500",
+      color: "hover:text-white hover:bg-[#E1306C]",
     },
   ];
 
@@ -73,41 +73,63 @@ export default function ContactPage() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-    }
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    },
+  };
+
+  const socialItemVariants = {
+    hidden: { opacity: 0, x: -40 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        delay: i * 0.1,
+        ease: [0.16, 1, 0.3, 1] as number[],
+      },
+    }),
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as number[] },
+    },
   };
 
   return (
-    <section className="min-h-screen w-full bg-inherit dark:bg-grid-white/[0.02] bg-grid-black/[0.02] relative py-20  overflow-hidden" id="contact">
+    <section
+      className="min-h-screen w-full bg-inherit dark:bg-grid-white/[0.02] bg-grid-black/[0.02] relative py-20 overflow-hidden"
+      id="contact"
+    >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 -left-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl" />
       </div>
-      
+
       <div className="absolute min-h-screen pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
       <div className="container relative z-10 mx-auto px-4 max-w-5xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
-            Get In{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Get In{" "}
+            <span className="italic border-b-2 border-neutral-900 dark:border-white pb-0.5">
               Touch
             </span>
           </h1>
           <p className="max-w-xl mx-auto text-neutral-500 dark:text-neutral-400">
-            Have a project in mind? Let&apos;s create something amazing together.
+            Have a project in mind? Let&apos;s create something amazing
+            together.
           </p>
         </motion.div>
 
@@ -116,18 +138,22 @@ export default function ContactPage() {
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true }}
             className="lg:col-span-2 space-y-6"
           >
             <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6">Connect With Me</h3>
+              <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6">
+                Connect With Me
+              </h3>
             </motion.div>
 
             <div className="space-y-3">
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={index}
-                  variants={itemVariants}
+                  custom={index}
+                  variants={socialItemVariants}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -147,11 +173,14 @@ export default function ContactPage() {
             {/* Quick Info */}
             <motion.div
               variants={itemVariants}
-              className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-neutral-100/80 to-neutral-100/40 dark:from-neutral-900/80 dark:to-neutral-900/40 border border-neutral-200/50 dark:border-neutral-800/50 backdrop-blur-sm"
+              className="mt-8 p-6 rounded-2xl bg-neutral-100/60 dark:bg-neutral-900/60 border border-neutral-200/50 dark:border-neutral-800/50 backdrop-blur-sm"
             >
-              <h4 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3">Quick Response</h4>
+              <h4 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3">
+                Quick Response
+              </h4>
               <p className="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed">
-                I typically respond within 24 hours. For urgent matters, please reach out via WhatsApp.
+                I typically respond within 24 hours. For urgent matters, please
+                reach out via WhatsApp.
               </p>
             </motion.div>
           </motion.div>
@@ -159,7 +188,8 @@ export default function ContactPage() {
           {/* Right Side - Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-3"
           >
@@ -169,18 +199,28 @@ export default function ContactPage() {
             >
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-neutral-600 dark:text-neutral-300">Name</Label>
+                  <Label
+                    htmlFor="name"
+                    className="text-neutral-600 dark:text-neutral-300"
+                  >
+                    Name
+                  </Label>
                   <Input
                     id="name"
                     placeholder="Your name"
                     value={name}
                     required
                     onChange={(e) => setName(e.target.value)}
-                    className="bg-neutral-200/50 dark:bg-neutral-800/50 border-neutral-300/50 dark:border-neutral-700/50 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-purple-500/50 focus:ring-purple-500/20"
+                    className="bg-neutral-200/50 dark:bg-neutral-800/50 border-neutral-300/50 dark:border-neutral-700/50 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-neutral-500/50 focus:ring-neutral-500/20"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-neutral-600 dark:text-neutral-300">Email</Label>
+                  <Label
+                    htmlFor="email"
+                    className="text-neutral-600 dark:text-neutral-300"
+                  >
+                    Email
+                  </Label>
                   <Input
                     id="email"
                     type="email"
@@ -188,20 +228,25 @@ export default function ContactPage() {
                     placeholder="your@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="bg-neutral-200/50 dark:bg-neutral-800/50 border-neutral-300/50 dark:border-neutral-700/50 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-purple-500/50 focus:ring-purple-500/20"
+                    className="bg-neutral-200/50 dark:bg-neutral-800/50 border-neutral-300/50 dark:border-neutral-700/50 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-neutral-500/50 focus:ring-neutral-500/20"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message" className="text-neutral-600 dark:text-neutral-300">Message</Label>
+                <Label
+                  htmlFor="message"
+                  className="text-neutral-600 dark:text-neutral-300"
+                >
+                  Message
+                </Label>
                 <Textarea
                   id="message"
                   placeholder="Tell me about your project..."
                   value={message}
                   required
                   onChange={(e) => setMessage(e.target.value)}
-                  className="bg-neutral-200/50 dark:bg-neutral-800/50 border-neutral-300/50 dark:border-neutral-700/50 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-purple-500/50 focus:ring-purple-500/20 min-h-[150px] resize-none"
+                  className="bg-neutral-200/50 dark:bg-neutral-800/50 border-neutral-300/50 dark:border-neutral-700/50 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-neutral-500/50 focus:ring-neutral-500/20 min-h-[150px] resize-none"
                 />
               </div>
 
@@ -209,7 +254,7 @@ export default function ContactPage() {
                 <Button
                   onClick={handleEmailSend}
                   disabled={!isFormValid}
-                  className="w-full sm:flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0 h-12 md:h-14 text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg shadow-purple-500/20 active:scale-[0.98]"
+                  className="w-full sm:flex-1 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-700 dark:hover:bg-neutral-100 border-0 h-12 md:h-14 text-base font-semibold disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300 active:scale-[0.98]"
                 >
                   <Mail className="scale-110" />
                   Send Email
@@ -217,7 +262,7 @@ export default function ContactPage() {
                 <Button
                   onClick={handleWhatsAppSend}
                   disabled={!isFormValid}
-                  className="w-full sm:flex-1 bg-emerald-600 hover:bg-emerald-700 text-white h-12 md:h-14 text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg shadow-emerald-500/20 active:scale-[0.98]"
+                  className="w-full sm:flex-1 bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white h-12 md:h-14 text-base font-semibold disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300 active:scale-[0.98]"
                 >
                   <RiWhatsappLine className="scale-125" />
                   WhatsApp

@@ -122,7 +122,13 @@ export default function CMSPage() {
       {/* Header */}
       <header className="border-b border-neutral-800 bg-neutral-900/50 backdrop-blur-xl sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <h1 className="text-xl font-bold text-white">Project CMS</h1>
+          <div className="flex items-center gap-4">
+            <span className="text-white font-semibold text-sm">Projects</span>
+            <span className="text-neutral-700">/</span>
+            <Link href="/cms/experience" className="text-neutral-400 hover:text-white text-sm transition-colors">
+              Experience
+            </Link>
+          </div>
           <div className="flex items-center gap-3">
             <Link href="/project" target="_blank">
               <Button variant="ghost" size="sm" className="text-neutral-400 hover:text-white">

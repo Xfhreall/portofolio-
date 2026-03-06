@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { cn } from '../lib/utils';
-import { Home, Code2Icon, Phone } from 'lucide-react';
+import { Home, Code2Icon, Phone, BriefcaseIcon } from 'lucide-react';
 import { ThemeSwitcher } from './theme-switcher';
 
 const navLinks = [
 	{ icon: Home, href: '/', label: 'Home' },
+	{ icon: BriefcaseIcon, href: '/experience', label: 'Experience' },
 	{ icon: Code2Icon, href: '/project', label: 'Projects' },
 	{ icon: Phone, href: '/contact', label: 'Contact' },
 ];
