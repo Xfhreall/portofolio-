@@ -40,7 +40,7 @@ export default function CMSExperiencePage() {
 
   async function fetchExperiences() {
     try {
-      const res = await fetch('/api/experience')
+      const res = await fetch('/api/experience?admin=true', { cache: 'no-store' })
       const data = await res.json()
       setExperiences(Array.isArray(data) ? data : [])
     } catch (error) {

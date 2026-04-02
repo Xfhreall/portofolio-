@@ -16,7 +16,6 @@ import {
   useSpring,
 } from "framer-motion";
 import { PixelatedCanvas } from "@/components/ui/pixel-canvas";
-import { getTechIcon } from "@/lib/icon/techIcon";
 
 type sosmedProps = {
   icon: React.ElementType;
@@ -53,20 +52,6 @@ const socialIconVariants = {
     },
   }),
 };
-
-const techItems = [
-  "react",
-  "typescript",
-  "next js",
-  "tailwind",
-  "javascript",
-  "shadcn ui",
-  "framer",
-  "vite",
-];
-const techItemsDoubled = [...techItems, ...techItems];
-const techItemsReversed = [...techItemsDoubled].reverse();
-
 export function About() {
   const ref = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -106,13 +91,6 @@ export function About() {
     [1.05, 1, 1.05]
   );
 
-  // Tech strip scroll
-  const { scrollYProgress: stripProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const stripX1 = useTransform(stripProgress, [0, 1], [0, -120]);
-  const stripX2 = useTransform(stripProgress, [0, 1], [0, 120]);
 
   return (
     <div
@@ -139,7 +117,7 @@ export function About() {
             transition={{ duration: 1 }}
           >
             <HoverBorderGradient
-              containerClassName="rounded-full"
+              containerClassName="rounded-full overflow-hidden isolate"
               className="dark:bg-black bg-white text-black size-[298px] dark:text-white cursor-default aspect-square border border-black"
             >
               <PixelatedCanvas
@@ -161,7 +139,7 @@ export function About() {
                 sampleAverage
                 tintColor="#FFFFFF"
                 tintStrength={0.12}
-                className="rounded-full brightness-110"
+                className="rounded-full brightness-110 block"
               />
             </HoverBorderGradient>
           </motion.div>
@@ -271,59 +249,6 @@ export function About() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Tech Stack Strip */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-10% 0px" }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full overflow-hidden py-6 border-t border-neutral-200/50 dark:border-neutral-800/50"
-      >
-        {/* Row 1: slides left on scroll */}
-        <motion.div
-          style={{ x: stripX1 }}
-          className="flex gap-3 mb-3 w-max"
-        >
-          {techItemsDoubled.map((tech, i) => {
-            const icon = getTechIcon(tech);
-            return (
-              <motion.div
-                key={`row1-${i}`}
-                whileHover={{ y: -4, scale: 1.05 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex-shrink-0 cursor-default"
-              >
-                {icon && <span className="flex-shrink-0">{icon}</span>}
-                <span className="text-xs font-medium text-neutral-600 dark:text-neutral-400 capitalize">
-                  {tech}
-                </span>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* Row 2: slides right on scroll */}
-        <motion.div
-          style={{ x: stripX2 }}
-          className="flex gap-3 w-max"
-        >
-          {techItemsReversed.map((tech, i) => {
-            const icon = getTechIcon(tech);
-            return (
-              <motion.div
-                key={`row2-${i}`}
-                whileHover={{ y: -4, scale: 1.05 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex-shrink-0 cursor-default"
-              >
-                {icon && <span className="flex-shrink-0">{icon}</span>}
-                <span className="text-xs font-medium text-neutral-600 dark:text-neutral-400 capitalize">
-                  {tech}
-                </span>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </motion.div>
     </div>
   );
 }

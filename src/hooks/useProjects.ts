@@ -17,13 +17,20 @@ interface Project {
 
 interface UseProjectsOptions {
   featured?: boolean
+  limit?: number
 }
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export function useProjects(options: UseProjectsOptions = {}) {
-  const { featured } = options
-  const url = featured ? '/api/projects?featured=true' : '/api/projects'
+  const { featured, limit } = options
+  const params = new URLSearchParams()
+  if (featured) params.set('featured', 'true')
+  if (typeof limit === 'number' && Number.isFinite(limit) && limit > 0) {
+    params.set('limit', String(Math.floor(limit)))
+  }
+  const query = params.toString()
+  const url = `/api/projects${query ? `?${query}` : ''}`
 
   const { data, error, isLoading, mutate } = useSWR<Project[]>(url, fetcher, {
     revalidateOnFocus: false,

@@ -31,7 +31,7 @@ export default function CMSPage() {
 
   async function fetchProjects() {
     try {
-      const res = await fetch('/api/projects')
+      const res = await fetch('/api/projects?admin=true', { cache: 'no-store' })
       const data = await res.json()
       setProjects(Array.isArray(data) ? data : [])
     } catch (error) {

@@ -13,8 +13,7 @@ const containerVariants = {
 }
 
 export default function ProjectPage() {
-  const { projects: allProjects, isLoading: loading } = useProjects({ featured: true })
-  const projects = allProjects.slice(0, 3)
+  const { projects, isLoading: loading } = useProjects({ featured: true, limit: 3 })
 
   return (
     <div className="min-h-screen pb-8 w-full bg-inherit dark:bg-grid-white/[0.02] bg-grid-black/[0.02] relative">
