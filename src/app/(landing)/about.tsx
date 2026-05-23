@@ -16,6 +16,7 @@ import {
   useSpring,
 } from "framer-motion";
 import { PixelatedCanvas } from "@/components/ui/pixel-canvas";
+import { BackgroundLines } from "@/components/background-lines";
 
 type sosmedProps = {
   icon: React.ElementType;
@@ -52,6 +53,7 @@ const socialIconVariants = {
     },
   }),
 };
+
 export function About() {
   const ref = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -91,17 +93,17 @@ export function About() {
     [1.05, 1, 1.05]
   );
 
-
   return (
     <div
-      className="min-h-screen w-full bg-inherit dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center space-y-4"
+      className="min-h-screen w-full bg-white dark:bg-neutral-950 relative flex flex-col items-center justify-center space-y-4 overflow-hidden"
       id="about"
     >
-      <div className="absolute min-h-screen pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+      {/* Grid line background overlay with Purple accent */}
+      <BackgroundLines accentColor="#9c41f7" />
 
       <div
         ref={ref}
-        className="flex justify-center flex-col md:flex-row items-center min-h-screen max-w-screen-lg mx-auto px-4 bg-transparent backdrop-blur-[2px] py-14"
+        className="relative z-10 flex justify-center flex-col md:flex-row items-center min-h-screen max-w-screen-lg mx-auto px-6 py-14"
       >
         {/* Left Column - Image */}
         <div
@@ -118,7 +120,7 @@ export function About() {
           >
             <HoverBorderGradient
               containerClassName="rounded-full overflow-hidden isolate"
-              className="dark:bg-black bg-white text-black size-[298px] dark:text-white cursor-default aspect-square border border-black"
+              className="dark:bg-black bg-white text-black size-[298px] dark:text-white cursor-default aspect-square border border-black/10 dark:border-white/10"
             >
               <PixelatedCanvas
                 src="https://i.ibb.co.com/Fkzd1dG9/Screenshot-from-2026-01-04-21-30-07-removebg-preview.png"
@@ -151,11 +153,11 @@ export function About() {
             transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="mt-4 text-center md:text-left"
           >
-            <h2 className="text-xl md:text-3xl font-semibold">
+            <h2 className="text-xl md:text-3xl font-black font-bricolage tracking-tight uppercase text-neutral-900 dark:text-white">
               Risqi <br className="hidden md:block" />
               Achmad Fahreal
             </h2>
-            <p className="font-mono tracking-wider dark:text-neutral-500 text-neutral-600 text-center md:text-start">
+            <p className="font-mono tracking-wider text-xs dark:text-neutral-500 text-neutral-600 text-center md:text-start mt-1">
               Farel · he/him
             </p>
           </motion.div>
@@ -174,12 +176,12 @@ export function About() {
             variants={itemVariants}
             className="text space-y-4"
           >
-            <div className="border-b-2 pb-2 border-neutral-500">
-              <span className="text-2xl md:text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-100">
+            <div className="border-b pb-2 border-black/10 dark:border-white/10">
+              <span className="text-2xl md:text-4xl mx-auto font-black font-bricolage tracking-tight uppercase text-neutral-800 dark:text-neutral-100">
                 Hello
                 <FlipWords
                   words={words}
-                  className="border border-white bg-neutral-900 dark:bg-neutral-100 backdrop-blur-xl"
+                  className="border border-black/10 dark:border-white/10 bg-neutral-900 text-white dark:bg-neutral-100 dark:text-black backdrop-blur-xl rounded px-2 ml-2"
                 />
                 <br />
                 Let&apos;s get started.
@@ -190,15 +192,14 @@ export function About() {
           {/* Bio */}
           <motion.p
             variants={itemVariants}
-            className="text-justify leading-8 text-xs md:text-base"
+            className="text-justify leading-8 text-xs md:text-base font-medium text-neutral-600 dark:text-neutral-300"
           >
-            A software engineer based in Malang, Indonesia. I specialize in
-            <strong> front end development</strong>. I use technologies such
+            A software engineer based in Malang, Indonesia. I specialize in{" "}
+            <strong className="text-neutral-900 dark:text-white font-extrabold">front end development</strong>. I use technologies such
             as React, Laravel, Next js, Tanstack Start, Expo, Kotlin, and other technologies and
             tools to add attractiveness, integrate systems, deploy, and
-            maintain applications. Additionally, I&apos;m a
-            <strong>
-              {" "}
+            maintain applications. Additionally, I&apos;m an{" "}
+            <strong className="text-neutral-900 dark:text-white font-extrabold">
               Informatics Engineering student at Brawijaya University.
             </strong>
           </motion.p>
@@ -211,7 +212,7 @@ export function About() {
             <HoverBorderGradient
               as="a"
               containerClassName="rounded-full"
-              className="dark:bg-black bg-white text-black dark:text-white flex items-center gap-2 px-4 py-2"
+              className="dark:bg-black bg-white text-black dark:text-white flex items-center gap-2 px-4 py-2 font-mono text-xs font-bold"
               {...{ href: "/CV_Risqi Achmad Fahreal.pdf", download: true }}
             >
               <svg
