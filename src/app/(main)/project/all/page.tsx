@@ -5,8 +5,9 @@ import { motion } from 'framer-motion'
 import { ProjectCard } from '@/components/project-card'
 import { ProjectGridSkeleton } from '@/components/skeleton'
 import { Button } from '@/components/ui/button'
-import { ArrowLeftIcon } from 'lucide-react'
+import { ArrowLeftIcon, FolderGit } from 'lucide-react'
 import { useProjects } from '@/hooks/useProjects'
+import { BackgroundLines } from '@/components/background-lines'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -17,25 +18,23 @@ export default function AllProjectsPage() {
   const { projects, isLoading: loading } = useProjects()
 
   return (
-    <div className="min-h-screen pb-8 w-full bg-inherit dark:bg-grid-white/[0.02] bg-grid-black/[0.02] relative">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-neutral-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-neutral-400/5 rounded-full blur-3xl" />
-      </div>
+    <div className="min-h-screen pb-16 w-full bg-white dark:bg-neutral-950 relative overflow-hidden select-none">
+      
+      {/* Grid lines with Projects page accent (Orange) */}
+      <BackgroundLines accentColor="#FF8A00" />
 
-      <div className="absolute min-h-screen pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
-
-      <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">
+      <div className="relative z-10 container mx-auto px-6 py-24">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
+          className="mb-8"
         >
           <Link href="/project">
             <Button
               variant="ghost"
-              className="mb-6 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
+              className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white font-mono text-xs uppercase tracking-widest font-bold focus:outline-none"
             >
               <ArrowLeftIcon className="w-4 h-4 mr-2" />
               Back to Featured
@@ -50,14 +49,20 @@ export default function AllProjectsPage() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 md:mb-20"
         >
-          <h1 className="text-3xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-3">
+          <div className="flex items-center gap-3 mb-4">
+            <FolderGit className="w-4 h-4 text-[#FF8A00]" />
+            <span className="text-xs font-mono uppercase tracking-widest text-[#FF8A00] font-bold">
+              Archive
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-black font-bricolage uppercase tracking-tight text-neutral-900 dark:text-white mb-3">
             All{' '}
-            <span className="italic border-b-2 border-neutral-900 dark:border-white pb-0.5">
+            <span className="italic underline decoration-[#FF8A00] underline-offset-8">
               Projects
             </span>
           </h1>
           {!loading && (
-            <p className="text-neutral-500 dark:text-neutral-400 text-sm">
+            <p className="text-neutral-500 dark:text-neutral-400 font-mono text-xs mt-6 font-bold uppercase tracking-wider">
               {projects.length} project{projects.length !== 1 ? 's' : ''} total
             </p>
           )}
@@ -73,7 +78,7 @@ export default function AllProjectsPage() {
             animate={{ opacity: 1 }}
             className="text-center py-20"
           >
-            <p className="text-neutral-500 dark:text-neutral-400 text-lg">
+            <p className="text-neutral-500 dark:text-neutral-400 font-mono text-sm">
               No projects yet. Check back soon.
             </p>
           </motion.div>

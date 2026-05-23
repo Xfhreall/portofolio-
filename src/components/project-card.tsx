@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink as Link } from '@/components/transition-link'
 import { cn } from '@/lib/utils'
 import { SquareArrowOutUpRightIcon } from 'lucide-react'
 import { getTechIcon } from '@/lib/icon/techIcon'
@@ -90,7 +90,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {/* Content */}
           <div className="p-4 sm:p-5 flex flex-col flex-1">
             <div className="flex-1">
-              <h3 className="text-base sm:text-lg font-semibold text-neutral-900 dark:text-white group-hover:text-neutral-700 dark:group-hover:text-neutral-100 transition-colors line-clamp-1">
+              <h3 className="text-base sm:text-lg font-bold font-bricolage uppercase tracking-tight text-neutral-900 dark:text-white group-hover:text-neutral-700 dark:group-hover:text-neutral-100 transition-colors line-clamp-1">
                 {project.name}
               </h3>
               <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 line-clamp-2 leading-relaxed">
