@@ -12,8 +12,7 @@ import {
   GitHubLogoIcon,
   InstagramLogoIcon,
 } from "@radix-ui/react-icons";
-import { Calendar, Briefcase, Download, ArrowLeft } from "lucide-react";
-import { TransitionLink as Link } from "@/components/transition-link";
+import { Calendar, Briefcase, Download } from "lucide-react";
 
 // Individual Sticky Experience Card Component with scroll-driven parallax stack scaling
 function StickyExperienceCard({
