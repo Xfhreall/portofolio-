@@ -1,5 +1,3 @@
-import {FloatingNavbar} from "@/components/navbar";
-
 export default function MainLayout({
   children,
 }: {
@@ -7,7 +5,6 @@ export default function MainLayout({
 }) {
   return (
     <div className="relative min-h-screen w-full">
-      <FloatingNavbar />
       <main>{children}</main>
     </div>
   );

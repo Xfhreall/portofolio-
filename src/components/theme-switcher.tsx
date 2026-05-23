@@ -102,8 +102,8 @@ export function ThemeSwitcher() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         className={cn(
-          'relative flex items-center justify-center w-11 h-11 rounded-full transition-all duration-300',
-          'text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 cursor-pointer'
+          'relative flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 pointer-events-auto',
+          'text-current hover:opacity-75 cursor-pointer'
         )}
         aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       >
@@ -117,7 +117,7 @@ export function ThemeSwitcher() {
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="absolute"
             >
-              <Moon className="h-[18px] w-[18px]" />
+              <Moon className="h-[16px] w-[16px]" />
             </motion.div>
           ) : (
             <motion.div
@@ -128,7 +128,7 @@ export function ThemeSwitcher() {
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="absolute"
             >
-              <Sun className="h-[18px] w-[18px]" />
+              <Sun className="h-[16px] w-[16px]" />
             </motion.div>
           )}
         </AnimatePresence>

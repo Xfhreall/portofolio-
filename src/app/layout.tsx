@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
-import { Sora } from "next/font/google";
+import { Sora, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { ViewportOverlay } from "@/components/viewport-overlay";
+import { PageTransition } from "@/components/page-transition";
+import { TransitionProvider } from "@/components/transition-context";
 
 const sora = Sora({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
+});
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-bricolage",
 });
 
 export const metadata: Metadata = {
@@ -84,7 +94,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${sora.className} antialiased pb-8 md:pb-0`}
+        className={`${sora.className} ${bricolage.variable} antialiased pb-8 md:pb-0`}
         suppressHydrationWarning
       >
         <ThemeProvider
@@ -92,7 +102,13 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem
         >
-          {children}
+          <TransitionProvider>
+            <SmoothScroll>
+              <ViewportOverlay />
+              <PageTransition />
+              {children}
+            </SmoothScroll>
+          </TransitionProvider>
         </ThemeProvider>{" "}
       </body>
     </html>
