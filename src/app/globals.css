@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  scroll-behavior: smooth;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -70,4 +66,75 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom class for Bricolage Grotesque font */
+.font-bricolage {
+  font-family: var(--font-bricolage), system-ui, sans-serif;
+}
+
+/* Custom text hover shifting animations (Valentin Gassend style) */
+.text-shift {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.text-shift-original {
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-shift-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .text-shift-original {
+  transform: translateY(-100%);
+}
+
+.group:hover .text-shift-hover {
+  transform: translateY(0);
+}
+
+/* Page transitions overlay vertical/horizontal bars */
+.PageTransition {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  display: flex;
+}
+
+.PageTransition-bar {
+  flex: 1;
+  height: 100%;
+  background-color: #000;
+  transform-origin: top;
+}
+
+/* Lenis scroll optimizations */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
