@@ -263,15 +263,60 @@ export default function AboutPage() {
 
               {/* Resume download */}
               <div className="pt-2">
-                <HoverBorderGradient
-                  as="a"
-                  containerClassName="rounded-full inline-block"
-                  className="dark:bg-black bg-white text-black dark:text-white flex items-center gap-2 px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider shadow-md hover:scale-[1.02] transition-transform duration-300"
-                  {...{ href: "/CV_Risqi Achmad Fahreal.pdf", download: true }}
+                <motion.a
+                  href="/CV_Risqi Achmad Fahreal.pdf"
+                  download
+                  className="relative group inline-flex items-center gap-3 px-8 py-4 rounded-full font-mono text-xs font-bold uppercase tracking-widest overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-300 hover:border-[#d97706]/40 dark:hover:border-[#d97706]/40 hover:shadow-[0_0_25px_rgba(217,119,6,0.15)] dark:hover:shadow-[0_0_30px_rgba(217,119,6,0.25)]"
+                  whileHover="hover"
+                  whileTap="tap"
+                  variants={{
+                    hover: { scale: 1.02 },
+                    tap: { scale: 0.98 },
+                  }}
                 >
-                  <Download className="h-4 w-4 text-[#d97706]" />
-                  <span>DOWNLOAD MY RESUME</span>
-                </HoverBorderGradient>
+                  {/* Subtle hover background slide/fade in gradient */}
+                  <motion.div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-yellow-500/10 to-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Moving shine reflection line */}
+                  <motion.div
+                    className="absolute -inset-y-0 -left-[100px] w-[60px] bg-gradient-to-r from-transparent via-white/20 dark:via-white/10 to-transparent skew-x-[30deg] pointer-events-none"
+                    variants={{
+                      hover: {
+                        x: [0, 450],
+                        transition: {
+                          duration: 1.2,
+                          ease: "easeInOut",
+                          repeat: Infinity,
+                          repeatDelay: 0.5,
+                        },
+                      },
+                    }}
+                  />
+
+                  {/* Icon with down arrow animation on hover */}
+                  <div className="relative z-10 flex items-center justify-center w-7 h-7 rounded-full bg-neutral-100 dark:bg-neutral-900 group-hover:bg-[#d97706] transition-colors duration-300">
+                    <motion.div
+                      variants={{
+                        hover: {
+                          y: [0, 3, -1, 1, 0],
+                          transition: { duration: 0.6, ease: "easeOut" },
+                        },
+                      }}
+                    >
+                      <Download className="h-3.5 w-3.5 text-[#d97706] group-hover:text-white transition-colors duration-300" />
+                    </motion.div>
+                  </div>
+
+                  <span className="relative z-10 tracking-widest group-hover:text-[#d97706] dark:group-hover:text-[#f59e0b] transition-colors duration-300">
+                    DOWNLOAD MY RESUME
+                  </span>
+
+                  {/* Active glowing ring or dot */}
+                  <span className="relative flex h-2 w-2 z-10">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#d97706]"></span>
+                  </span>
+                </motion.a>
               </div>
             </div>
           </div>
