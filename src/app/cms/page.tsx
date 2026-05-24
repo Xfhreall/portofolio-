@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { PlusIcon, PencilIcon, TrashIcon, Loader2Icon, LogOutIcon, ExternalLinkIcon, StarIcon, ChevronUpIcon, ChevronDownIcon } from 'lucide-react'
@@ -215,13 +216,13 @@ export default function CMSPage() {
                 </div>
 
                 {/* Thumbnail */}
-                <div className="w-16 h-16 rounded-lg bg-neutral-800 overflow-hidden flex-shrink-0">
+                <div className="w-16 h-16 rounded-lg bg-neutral-800 overflow-hidden flex-shrink-0 relative">
                   {project.imageUrl && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
+                    <Image
                       src={project.imageUrl}
                       alt={project.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   )}
                 </div>

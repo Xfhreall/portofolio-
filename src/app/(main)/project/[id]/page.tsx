@@ -313,7 +313,7 @@ export default function ProjectDetailPage() {
           {/* Scroll Navigation Overlay (Section progress indicator) */}
           <div className="absolute right-6 top-1/2 transform -translate-y-1/2 hidden md:flex flex-col space-y-4 z-20 font-mono text-[10px] font-bold text-neutral-400 tracking-wider">
             {["overview", "role", "how", "what"].map((sec) => (
-              <a
+              <Link
                 key={sec}
                 href={`#section-${sec}`}
                 className={`transition-colors duration-300 uppercase hover:text-black dark:hover:text-white ${
@@ -323,7 +323,7 @@ export default function ProjectDetailPage() {
                 }`}
               >
                 {sec}
-              </a>
+              </Link>
             ))}
           </div>
 

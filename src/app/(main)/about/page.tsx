@@ -13,16 +13,19 @@ import {
   InstagramLogoIcon,
 } from "@radix-ui/react-icons";
 import { Calendar, Briefcase, Download } from "lucide-react";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 // Individual Sticky Experience Card Component with scroll-driven parallax stack scaling
 function StickyExperienceCard({
   exp,
   index,
   total,
+  isDesktop,
 }: {
   exp: Experience;
   index: number;
   total: number;
+  isDesktop: boolean;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -61,12 +64,12 @@ function StickyExperienceCard({
   return (
     <div
       ref={cardRef}
-      // Each card sticks at a slightly different top offset to stack neatly (e.g. 15vh + index * 12px)
-      style={{ top: `calc(15vh + ${index * 16}px)` }}
-      className="sticky w-full max-w-3xl mx-auto mb-16 px-4 md:px-0"
+      // Each card sticks at a slightly different top offset to stack neatly (e.g. 15vh + index * 16px) on desktop, slightly lower on mobile
+      style={{ top: isDesktop ? `calc(15vh + ${index * 16}px)` : `calc(8vh + ${index * 12}px)` }}
+      className="sticky w-full max-w-3xl mx-auto mb-12 lg:mb-16 px-4 md:px-0"
     >
       <motion.div
-        style={{ scale, opacity, filter: blur }}
+        style={{ scale, opacity, filter: blur, willChange: 'transform, opacity, filter' }}
         className="w-full border border-neutral-200/80 dark:border-white/5 bg-white/95 dark:bg-neutral-900/90 backdrop-blur-md p-8 md:p-10 rounded-3xl shadow-xl hover:border-[#d97706]/40 dark:hover:border-[#d97706]/35 transition-colors duration-300 relative overflow-hidden"
       >
         {/* Large Index indicator */}
@@ -78,16 +81,9 @@ function StickyExperienceCard({
         <div className="flex justify-between items-center font-mono text-[10px] md:text-xs text-neutral-500 dark:text-neutral-400 font-bold uppercase z-10 border-b border-black/5 dark:border-white/5 pb-4 mb-6">
           <span className="flex items-center gap-1.5">
             <Calendar className="w-3.5 h-3.5 text-[#d97706]" />
-            {exp.startDate}
-          </span>
-          <span
-            className={
-              isOngoing
-                ? "text-[#d97706] font-black tracking-wider"
-                : "font-bold"
-            }
-          >
-            {exp.endDate || "PRESENT"}
+            <span>
+              {exp.startDate} - <span className={isOngoing ? "text-[#d97706] font-black tracking-wider" : "font-bold"}>{exp.endDate || "PRESENT"}</span>
+            </span>
           </span>
         </div>
 
@@ -118,6 +114,7 @@ export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { experiences, isLoading } = useExperience();
   const words = ["Sir!", "Miss!", "Friend!", "There!"];
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   const socials = [
     {
@@ -145,7 +142,7 @@ export default function AboutPage() {
 
   const springConfig = { stiffness: 90, damping: 22, mass: 0.4 };
 
-  // Section transforms (Section 1 scales down slightly as Section 2 scrolls over it)
+  // Section transforms (Section 1 scales down slightly as Section 2 scrolls over it) on desktop
   const bioY = useSpring(
     useTransform(scrollYProgress, [0, 0.4], [0, -100]),
     springConfig,
@@ -159,6 +156,7 @@ export default function AboutPage() {
     springConfig,
   );
 
+
   return (
     <div
       ref={containerRef}
@@ -166,16 +164,16 @@ export default function AboutPage() {
     >
       {/* 1. PROFILE STICKY STAGE (z-10) */}
       <motion.div
-        style={{ y: bioY, scale: bioScale, opacity: bioOpacity }}
+        style={{ y: bioY, scale: bioScale, opacity: bioOpacity, willChange: 'transform, opacity' }}
         className="sticky top-0 h-screen w-full z-10 flex flex-col justify-center items-center overflow-hidden bg-white dark:bg-neutral-950"
       >
         {/* Background Grid Lines (Gold/Amber Theme) */}
         <BackgroundLines accentColor="#d97706" />
 
         <div className="container relative z-10 mx-auto px-6 max-w-5xl">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center h-full pt-12 md:pt-0">
+          <div className="flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-12 items-center justify-between h-[85vh] md:h-auto pt-2 md:pt-0">
             {/* Left Column: Portrait & Socials */}
-            <div className="md:col-span-5 flex flex-col items-center text-center">
+            <div className="md:col-span-5 flex flex-col items-center text-center flex-shrink-0">
               <HoverBorderGradient
                 containerClassName="rounded-full overflow-hidden isolate shadow-2xl"
                 className="dark:bg-black bg-white text-black size-[280px] dark:text-white cursor-default aspect-square border border-black/10 dark:border-white/10"
@@ -231,7 +229,7 @@ export default function AboutPage() {
             </div>
 
             {/* Right Column: Bio details */}
-            <div className="md:col-span-7 space-y-6">
+            <div className="md:col-span-7 space-y-3 md:space-y-6">
               <span className="text-2xl md:text-4xl font-black font-bricolage tracking-tight uppercase text-neutral-950 dark:text-white flex items-center flex-wrap leading-tight">
                 Hello
                 <FlipWords
@@ -240,7 +238,7 @@ export default function AboutPage() {
                 />
               </span>
 
-              <p className="text-neutral-600 dark:text-neutral-300 font-medium text-xs md:text-sm leading-relaxed text-justify">
+              <p className="text-neutral-600 dark:text-neutral-300 font-medium text-[11px] md:text-sm leading-relaxed text-justify">
                 A software engineer based in Malang, Indonesia. I specialize in{" "}
                 <strong className="text-neutral-950 dark:text-white font-extrabold">
                   front end development
@@ -252,7 +250,7 @@ export default function AboutPage() {
                 architectures.
               </p>
 
-              <p className="text-neutral-600 dark:text-neutral-300 font-medium text-xs md:text-sm leading-relaxed text-justify">
+              <p className="text-neutral-600 dark:text-neutral-300 font-medium text-[11px] md:text-sm leading-relaxed text-justify">
                 Additionally, I&apos;m currently pursuing my degree as an{" "}
                 <strong className="text-neutral-950 dark:text-white font-extrabold">
                   Informatics Engineering student at Brawijaya University.
@@ -375,6 +373,7 @@ export default function AboutPage() {
                 exp={exp}
                 index={idx}
                 total={experiences.length}
+                isDesktop={isDesktop}
               />
             ))}
           </div>

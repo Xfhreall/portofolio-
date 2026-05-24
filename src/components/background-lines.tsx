@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface BackgroundLinesProps {
   accentColor?: string; // e.g. '#9c41f7' for home, '#06BA63' for experience, etc.
@@ -11,6 +12,7 @@ export function BackgroundLines({ accentColor = "#9c41f7" }: BackgroundLinesProp
   // We'll define vertical lines (columns) and horizontal lines (rows)
   const columns = [0, 33.33, 66.66, 100];
   const rows = [0, 25, 50, 75, 100];
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   return (
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
@@ -40,7 +42,7 @@ export function BackgroundLines({ accentColor = "#9c41f7" }: BackgroundLinesProp
               className="absolute top-0 bottom-0 w-[1px] h-full"
             >
               {/* Optional moving glowing dot along the vertical line */}
-              {idx > 0 && idx < columns.length - 1 && (
+              {isDesktop && idx > 0 && idx < columns.length - 1 && (
                 <motion.div
                   initial={{ top: "-10%" }}
                   animate={{ top: "110%" }}
@@ -82,7 +84,7 @@ export function BackgroundLines({ accentColor = "#9c41f7" }: BackgroundLinesProp
               className="absolute left-0 right-0 h-[1px] w-full"
             >
               {/* Optional moving glowing dot along the horizontal line */}
-              {idx > 0 && idx < rows.length - 1 && (
+              {isDesktop && idx > 0 && idx < rows.length - 1 && (
                 <motion.div
                   initial={{ left: "-10%" }}
                   animate={{ left: "110%" }}
