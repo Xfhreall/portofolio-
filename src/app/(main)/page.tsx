@@ -200,7 +200,7 @@ export default function Home() {
                 Engineering visual emotions through code.
               </p>
               <p className="text-sm md:text-base font-medium text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xl">
-                I am a software engineer specializing in frontend engineering and creative development. I bridge the gap between design thinking and technological execution, building production-grade interfaces that are visually memorable, smooth, and highly performant.
+                I am a fullstack developer specializing in frontend engineering and creative development. I bridge the gap between design thinking and technological execution, building production-grade interfaces that are visually memorable, smooth, and highly performant.
               </p>
 
               {/* Styled Premium CTA Link with Text-Shift Effect */}

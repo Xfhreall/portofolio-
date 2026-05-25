@@ -5,6 +5,7 @@ import { TransitionLink as Link } from "./transition-link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { BackgroundLines } from "./background-lines";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface MenuOverlayProps {
   onClose: () => void;
@@ -100,11 +101,9 @@ export function MenuOverlay({ onClose }: MenuOverlayProps) {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -15 }}
                           transition={{ duration: 0.25, ease: "easeOut" }}
-                          className={`text-xl font-bold ${
-                            isActive ? "text-black dark:text-white" : "text-neutral-400"
-                          }`}
+                          className={isActive ? "text-black dark:text-white" : "text-neutral-400"}
                         >
-                          &gt;
+                          <ChevronRight className="w-6 h-6 stroke-[2.5]" />
                         </motion.span>
                       )}
                     </AnimatePresence>
@@ -129,11 +128,9 @@ export function MenuOverlay({ onClose }: MenuOverlayProps) {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: 15 }}
                           transition={{ duration: 0.25, ease: "easeOut" }}
-                          className={`text-xl font-bold ${
-                            isActive ? "text-black dark:text-white" : "text-neutral-400"
-                          }`}
+                          className={isActive ? "text-black dark:text-white" : "text-neutral-400"}
                         >
-                          &lt;
+                          <ChevronLeft className="w-6 h-6 stroke-[2.5]" />
                         </motion.span>
                       )}
                     </AnimatePresence>

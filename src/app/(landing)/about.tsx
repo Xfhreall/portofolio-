@@ -194,7 +194,7 @@ export function About() {
             variants={itemVariants}
             className="text-justify leading-8 text-xs md:text-base font-medium text-neutral-600 dark:text-neutral-300"
           >
-            A software engineer based in Malang, Indonesia. I specialize in{" "}
+            A fullstack developer based in Malang, Indonesia, specializing in{" "}
             <strong className="text-neutral-900 dark:text-white font-extrabold">front end development</strong>. I use technologies such
             as React, Laravel, Next js, Tanstack Start, Expo, Kotlin, and other technologies and
             tools to add attractiveness, integrate systems, deploy, and

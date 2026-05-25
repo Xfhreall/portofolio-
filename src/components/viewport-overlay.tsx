@@ -8,7 +8,7 @@ import { ThemeSwitcher } from "./theme-switcher";
 
 const ROLES = [
   "CREATIVE DEVELOPER",
-  "SOFTWARE ENGINEER",
+  "FULLSTACK DEVELOPER",
   "INFORMATICS STUDENT",
 ];
 

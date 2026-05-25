@@ -239,7 +239,7 @@ export default function AboutPage() {
               </span>
 
               <p className="text-neutral-600 dark:text-neutral-300 font-medium text-[11px] md:text-sm leading-relaxed text-justify">
-                A software engineer based in Malang, Indonesia. I specialize in{" "}
+                A fullstack developer based in Malang, Indonesia, specializing in{" "}
                 <strong className="text-neutral-950 dark:text-white font-extrabold">
                   front end development
                 </strong>

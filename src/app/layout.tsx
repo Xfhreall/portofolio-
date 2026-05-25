@@ -21,14 +21,15 @@ const bricolage = Bricolage_Grotesque({
 
 export const metadata: Metadata = {
   title: {
-    default: "Risqi Achmad Fahreal - Software Engineer",
+    default: "Risqi Achmad Fahreal - Fullstack Developer",
     template: "%s | Risqi Achmad Fahreal",
   },
   description:
-    "Front-end developer & Computer Science student at Brawijaya University. Specializing in React, Next.js, and modern web technologies. Based in Malang, Indonesia.",
+    "Fullstack developer specializing in frontend development & Computer Science student at Brawijaya University. Specializing in React, Next.js, and modern web technologies. Based in Malang, Indonesia.",
   keywords: [
     "Risqi Achmad Fahreal",
     "Farel",
+    "Fullstack Developer",
     "Software Engineer",
     "Front-end Developer",
     "Web Developer",
@@ -62,24 +63,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
     alternateLocale: "en_US",
-    title: "Risqi Achmad Fahreal - Software Engineer",
+    title: "Risqi Achmad Fahreal - Fullstack Developer",
     description:
-      "Front-end developer & Computer Science student at Brawijaya University. Specializing in React, Next.js, and modern web technologies.",
+      "Fullstack developer specializing in frontend development & Computer Science student at Brawijaya University. Specializing in React, Next.js, and modern web technologies.",
     siteName: "Risqi Achmad Fahreal Portfolio",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Risqi Achmad Fahreal - Software Engineer",
+        alt: "Risqi Achmad Fahreal - Fullstack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Risqi Achmad Fahreal - Software Engineer",
+    title: "Risqi Achmad Fahreal - Fullstack Developer",
     description:
-      "Front-end developer & Computer Science student at Brawijaya University. Specializing in React, Next.js, and modern web technologies.",
+      "Fullstack developer specializing in frontend development & Computer Science student at Brawijaya University. Specializing in React, Next.js, and modern web technologies.",
     images: ["/og-image.png"],
     creator: "@ursnctuary_",
   },
