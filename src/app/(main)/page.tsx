@@ -250,17 +250,9 @@ export default function Home() {
                 </span>
               </div>
               <h2 className="text-4xl md:text-7xl font-black font-bricolage uppercase tracking-tight text-neutral-950 dark:text-white leading-none">
-                EXPERIENCE<span className="text-[#06BA63]">.</span>
+                RECENT EXPERIENCE<span className="text-[#06BA63]">.</span>
               </h2>
             </div>
-            
-            <Link 
-              href="/about#experience" 
-              className="group hidden sm:flex items-center gap-2 font-mono text-[10px] uppercase font-bold tracking-widest text-neutral-500 hover:text-[#06BA63] transition-colors"
-            >
-              <span>View Full History</span>
-              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
           </div>
 
           {/* Experience Timeline Cards */}
@@ -290,12 +282,19 @@ export default function Home() {
           <div className="flex flex-col items-center gap-6 mt-16 pb-8">
             <Link
               href="/about#experience"
-              className="group inline-flex items-center gap-2 text-neutral-500 dark:text-neutral-400 hover:text-[#06BA63] transition-colors sm:hidden"
+              className="group inline-flex items-center gap-4 bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 px-6 py-4 rounded-full font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-lg shadow-neutral-900/10 dark:shadow-white/5"
             >
-              <span className="text-xs uppercase font-mono tracking-widest font-bold border-b border-current pb-1">
-                View Full History
+              <span className="relative block overflow-hidden">
+                <span className="block transition-transform duration-500 ease-out group-hover:translate-y-[-100%]">
+                  VIEW FULL HISTORY
+                </span>
+                <span className="absolute inset-0 block transition-transform duration-500 ease-out translate-y-[100%] group-hover:translate-y-0 text-[#06BA63] dark:text-[#06BA63]">
+                  VIEW FULL HISTORY
+                </span>
               </span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <div className="w-5 h-5 rounded-full bg-neutral-800 dark:bg-neutral-100 flex items-center justify-center group-hover:-rotate-45 transition-transform duration-300">
+                <ArrowUpRight className="w-3.5 h-3.5 text-white dark:text-neutral-950" />
+              </div>
             </Link>
           </div>
         </div>
