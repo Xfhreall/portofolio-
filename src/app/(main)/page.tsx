@@ -119,17 +119,17 @@ export default function Home() {
   const overviewTranslateY = isDesktop ? 180 : 60
   const projectsTranslateY = isDesktop ? 120 : 40
 
-  // 1. HERO PARALLAX (Active between scroll 0.0 -> 0.33)
-  const heroY = useSpring(useTransform(scrollYProgress, [0, 0.33], [0, heroTranslateY]), springConfig)
-  const heroScale = useSpring(useTransform(scrollYProgress, [0, 0.33], [1, 0.95]), springConfig)
-  const heroOpacity = useSpring(useTransform(scrollYProgress, [0, 0.22], [1, 0]), springConfig)
+  // 1. HERO PARALLAX (Active between scroll 0.0 -> 0.20)
+  const heroY = useSpring(useTransform(scrollYProgress, [0, 0.20], [0, heroTranslateY]), springConfig)
+  const heroScale = useSpring(useTransform(scrollYProgress, [0, 0.20], [1, 0.95]), springConfig)
+  const heroOpacity = useSpring(useTransform(scrollYProgress, [0, 0.18], [1, 0]), springConfig)
 
   // 2. OVERVIEW PARALLAX (Active between scroll 0.0 -> 0.66)
-  const overviewContentY = useSpring(useTransform(scrollYProgress, [0, 0.33, 0.66], [overviewTranslateY, 0, -100]), springConfig)
-  const overviewTitleX = useSpring(useTransform(scrollYProgress, [0, 0.33], [isDesktop ? -100 : -30, 0]), springConfig)
-  const overviewSubtitleX = useSpring(useTransform(scrollYProgress, [0, 0.33], [isDesktop ? 80 : 25, 0]), springConfig)
+  const overviewContentY = useSpring(useTransform(scrollYProgress, [0, 0.20, 0.66], [overviewTranslateY, 0, -100]), springConfig)
+  const overviewTitleX = useSpring(useTransform(scrollYProgress, [0, 0.20], [isDesktop ? -100 : -30, 0]), springConfig)
+  const overviewSubtitleX = useSpring(useTransform(scrollYProgress, [0, 0.20], [isDesktop ? 80 : 25, 0]), springConfig)
   const overviewBgY = useSpring(useTransform(scrollYProgress, [0, 0.66], [isDesktop ? -60 : -20, isDesktop ? 60 : 20]), springConfig)
-  const overviewOpacity = useSpring(useTransform(scrollYProgress, [0.22, 0.33, 0.58, 0.66], [0, 1, 1, 0]), springConfig)
+  const overviewOpacity = useSpring(useTransform(scrollYProgress, [0.05, 0.20, 0.58, 0.66], [0, 1, 1, 0]), springConfig)
 
   // 4. PROJECTS PARALLAX (Active between scroll 0.66 -> 1.0)
   const projectsTitleY = useSpring(useTransform(scrollYProgress, [0.66, 1.0], [isDesktop ? 100 : 30, 0]), springConfig)
