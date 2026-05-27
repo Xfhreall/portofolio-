@@ -335,7 +335,7 @@ export default function AboutPage() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center text-[9px] font-mono tracking-widest text-neutral-400 dark:text-neutral-500 uppercase md:flex">
+        <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 items-center text-[9px] font-mono tracking-widest text-neutral-400 dark:text-neutral-500 uppercase md:flex md:flex-col">
           <span>Scroll down for career history</span>
           <span className="mt-1 text-xs font-black text-[#d97706] animate-bounce">
             ↓
