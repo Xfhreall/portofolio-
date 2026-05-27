@@ -146,15 +146,27 @@ export default function AboutPage() {
 
   // Section transforms (Section 1 scales down slightly as Section 2 scrolls over it) on desktop
   const bioY = useSpring(
-    useTransform(scrollYProgress, [0, 0.4], [0, -100]),
+    useTransform(
+      scrollYProgress,
+      [0, 0.4],
+      isDesktop ? [0, -100] : [0, 0],
+    ),
     springConfig,
   );
   const bioScale = useSpring(
-    useTransform(scrollYProgress, [0, 0.4], [1, 0.92]),
+    useTransform(
+      scrollYProgress,
+      [0, 0.4],
+      isDesktop ? [1, 0.92] : [1, 1],
+    ),
     springConfig,
   );
   const bioOpacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.3], [1, 0.1]),
+    useTransform(
+      scrollYProgress,
+      [0, 0.3],
+      isDesktop ? [1, 0.1] : [1, 1],
+    ),
     springConfig,
   );
 
@@ -167,7 +179,7 @@ export default function AboutPage() {
       {/* 1. PROFILE STICKY STAGE (z-10) */}
       <motion.div
         style={{ y: bioY, scale: bioScale, opacity: bioOpacity, willChange: 'transform, opacity' }}
-        className="relative w-full z-10 flex flex-col justify-center items-center min-h-screen overflow-visible bg-white dark:bg-neutral-950 md:sticky md:top-0 md:h-screen md:overflow-hidden"
+        className="relative w-full z-10 flex flex-col justify-start md:justify-center items-center min-h-screen overflow-visible bg-white dark:bg-neutral-950 md:sticky md:top-0 md:h-screen md:overflow-hidden"
       >
         {/* Background Grid Lines (Gold/Amber Theme) */}
         <BackgroundLines accentColor="#d97706" />
@@ -323,7 +335,7 @@ export default function AboutPage() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-[9px] font-mono tracking-widest text-neutral-400 dark:text-neutral-500 uppercase">
+        <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center text-[9px] font-mono tracking-widest text-neutral-400 dark:text-neutral-500 uppercase md:flex">
           <span>Scroll down for career history</span>
           <span className="mt-1 text-xs font-black text-[#d97706] animate-bounce">
             ↓
