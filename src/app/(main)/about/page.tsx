@@ -169,6 +169,8 @@ export default function AboutPage() {
     ),
     springConfig,
   );
+  const heroClassName =
+    "relative w-full z-10 flex flex-col justify-start md:justify-center items-center min-h-screen overflow-visible bg-white dark:bg-neutral-950 md:sticky md:top-0 md:h-screen md:overflow-hidden";
 
 
   return (
@@ -179,7 +181,7 @@ export default function AboutPage() {
       {/* 1. PROFILE STICKY STAGE (z-10) */}
       <motion.div
         style={{ y: bioY, scale: bioScale, opacity: bioOpacity, willChange: 'transform, opacity' }}
-        className="relative w-full z-10 flex flex-col justify-start md:justify-center items-center min-h-screen overflow-visible bg-white dark:bg-neutral-950 md:sticky md:top-0 md:h-screen md:overflow-hidden"
+        className={heroClassName}
       >
         {/* Background Grid Lines (Gold/Amber Theme) */}
         <BackgroundLines accentColor="#d97706" />
