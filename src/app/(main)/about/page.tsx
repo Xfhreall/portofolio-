@@ -116,6 +116,7 @@ export default function AboutPage() {
   const words = ["Sir!", "Miss!", "Friend!", "There!"];
   const isMd = useMediaQuery("(min-width: 768px)");
   const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const portraitCanvasSize = isMd ? 270 : 210;
 
   const socials = [
     {
@@ -181,8 +182,8 @@ export default function AboutPage() {
               >
                 <PixelatedCanvas
                   src="https://i.ibb.co.com/Fkzd1dG9/Screenshot-from-2026-01-04-21-30-07-removebg-preview.png"
-                  width={isMd ? 270 : 210}
-                  height={isMd ? 270 : 210}
+                  width={portraitCanvasSize}
+                  height={portraitCanvasSize}
                   cellSize={3}
                   dotScale={0.9}
                   shape="square"
