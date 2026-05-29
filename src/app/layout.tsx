@@ -44,8 +44,13 @@ export const metadata: Metadata = {
     "Tailwind CSS",
     "Porto",
     "Mobile developer",
+    "Riski Ahmad Fahreal",
+    "Riski Ahmad Fahrel",
+    "Riski Ahmad Farel",
   ],
-  authors: [{ name: "Risqi Achmad Fahreal", url: "https://github.com/Xfhreall" }],
+  authors: [
+    { name: "Risqi Achmad Fahreal", url: "https://github.com/Xfhreall" },
+  ],
   creator: "Risqi Achmad Fahreal",
   publisher: "Risqi Achmad Fahreal",
   robots: {
@@ -98,11 +103,7 @@ export default function RootLayout({
         className={`${sora.className} ${bricolage.variable} antialiased pb-8 md:pb-0`}
         suppressHydrationWarning
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-        >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <TransitionProvider>
             <SmoothScroll>
               <ViewportOverlay />

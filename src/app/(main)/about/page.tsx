@@ -65,11 +65,20 @@ function StickyExperienceCard({
     <div
       ref={cardRef}
       // Each card sticks at a slightly different top offset to stack neatly (e.g. 15vh + index * 16px) on desktop, slightly lower on mobile
-      style={{ top: isDesktop ? `calc(15vh + ${index * 16}px)` : `calc(8vh + ${index * 12}px)` }}
+      style={{
+        top: isDesktop
+          ? `calc(15vh + ${index * 16}px)`
+          : `calc(8vh + ${index * 12}px)`,
+      }}
       className="sticky w-full max-w-3xl mx-auto mb-12 lg:mb-16 px-4 md:px-0"
     >
       <motion.div
-        style={{ scale, opacity, filter: blur, willChange: 'transform, opacity, filter' }}
+        style={{
+          scale,
+          opacity,
+          filter: blur,
+          willChange: "transform, opacity, filter",
+        }}
         className="w-full border border-neutral-200/80 dark:border-white/5 bg-white/95 dark:bg-neutral-900/90 backdrop-blur-md p-8 md:p-10 rounded-3xl shadow-xl hover:border-[#d97706]/40 dark:hover:border-[#d97706]/35 transition-colors duration-300 relative overflow-hidden"
       >
         {/* Large Index indicator */}
@@ -82,7 +91,16 @@ function StickyExperienceCard({
           <span className="flex items-center gap-1.5">
             <Calendar className="w-3.5 h-3.5 text-[#d97706]" />
             <span>
-              {exp.startDate} - <span className={isOngoing ? "text-[#d97706] font-black tracking-wider" : "font-bold"}>{exp.endDate || "PRESENT"}</span>
+              {exp.startDate} -{" "}
+              <span
+                className={
+                  isOngoing
+                    ? "text-[#d97706] font-black tracking-wider"
+                    : "font-bold"
+                }
+              >
+                {exp.endDate || "PRESENT"}
+              </span>
             </span>
           </span>
         </div>
@@ -156,7 +174,6 @@ export default function AboutPage() {
     springConfig,
   );
 
-
   return (
     <div
       ref={containerRef}
@@ -164,7 +181,12 @@ export default function AboutPage() {
     >
       {/* 1. PROFILE STICKY STAGE (z-10) */}
       <motion.div
-        style={{ y: bioY, scale: bioScale, opacity: bioOpacity, willChange: 'transform, opacity' }}
+        style={{
+          y: bioY,
+          scale: bioScale,
+          opacity: bioOpacity,
+          willChange: "transform, opacity",
+        }}
         className="sticky top-0 h-screen w-full z-10 flex flex-col justify-center items-center overflow-hidden bg-white dark:bg-neutral-950"
       >
         {/* Background Grid Lines (Gold/Amber Theme) */}
@@ -239,7 +261,8 @@ export default function AboutPage() {
               </span>
 
               <p className="text-neutral-600 dark:text-neutral-300 font-medium text-[11px] md:text-sm leading-relaxed text-justify">
-                A fullstack developer based in Malang, Indonesia, specializing in{" "}
+                A fullstack developer based in Malang, Indonesia, specializing
+                in{" "}
                 <strong className="text-neutral-950 dark:text-white font-extrabold">
                   front end development
                 </strong>
