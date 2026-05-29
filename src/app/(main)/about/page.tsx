@@ -132,7 +132,9 @@ export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { experiences, isLoading } = useExperience();
   const words = ["Sir!", "Miss!", "Friend!", "There!"];
+  const isMd = useMediaQuery("(min-width: 768px)");
   const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const portraitCanvasSize = isMd ? 270 : 210;
 
   const socials = [
     {
@@ -162,17 +164,19 @@ export default function AboutPage() {
 
   // Section transforms (Section 1 scales down slightly as Section 2 scrolls over it) on desktop
   const bioY = useSpring(
-    useTransform(scrollYProgress, [0, 0.4], [0, -100]),
+    useTransform(scrollYProgress, [0, 0.4], isDesktop ? [0, -100] : [0, 0]),
     springConfig,
   );
   const bioScale = useSpring(
-    useTransform(scrollYProgress, [0, 0.4], [1, 0.92]),
+    useTransform(scrollYProgress, [0, 0.4], isDesktop ? [1, 0.92] : [1, 1]),
     springConfig,
   );
   const bioOpacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.3], [1, 0.1]),
+    useTransform(scrollYProgress, [0, 0.3], isDesktop ? [1, 0.1] : [1, 1]),
     springConfig,
   );
+  const heroClassName =
+    "relative w-full z-10 flex flex-col justify-start md:justify-center items-center min-h-screen overflow-visible bg-white dark:bg-neutral-950 md:sticky md:top-0 md:h-screen md:overflow-hidden";
 
   return (
     <div
@@ -187,23 +191,23 @@ export default function AboutPage() {
           opacity: bioOpacity,
           willChange: "transform, opacity",
         }}
-        className="sticky top-0 h-screen w-full z-10 flex flex-col justify-center items-center overflow-hidden bg-white dark:bg-neutral-950"
+        className={heroClassName}
       >
         {/* Background Grid Lines (Gold/Amber Theme) */}
         <BackgroundLines accentColor="#d97706" />
 
         <div className="container relative z-10 mx-auto px-6 max-w-5xl">
-          <div className="flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-12 items-center justify-between h-[85vh] md:h-auto pt-2 md:pt-0">
+          <div className="flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-12 items-center justify-between min-h-[85vh] md:h-auto pt-2 md:pt-0">
             {/* Left Column: Portrait & Socials */}
             <div className="md:col-span-5 flex flex-col items-center text-center flex-shrink-0">
               <HoverBorderGradient
                 containerClassName="rounded-full overflow-hidden isolate shadow-2xl"
-                className="dark:bg-black bg-white text-black size-[280px] dark:text-white cursor-default aspect-square border border-black/10 dark:border-white/10"
+                className="dark:bg-black bg-white text-black size-[220px] md:size-[280px] dark:text-white cursor-default aspect-square border border-black/10 dark:border-white/10"
               >
                 <PixelatedCanvas
                   src="https://i.ibb.co.com/Fkzd1dG9/Screenshot-from-2026-01-04-21-30-07-removebg-preview.png"
-                  width={270}
-                  height={270}
+                  width={portraitCanvasSize}
+                  height={portraitCanvasSize}
                   cellSize={3}
                   dotScale={0.9}
                   shape="square"
@@ -344,7 +348,7 @@ export default function AboutPage() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-[9px] font-mono tracking-widest text-neutral-400 dark:text-neutral-500 uppercase">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 transform hidden md:flex md:flex-col items-center text-[9px] font-mono tracking-widest text-neutral-400 dark:text-neutral-500 uppercase">
           <span>Scroll down for career history</span>
           <span className="mt-1 text-xs font-black text-[#d97706] animate-bounce">
             ↓
