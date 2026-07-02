@@ -265,15 +265,18 @@ export default function AboutPage() {
               </span>
 
               <p className="text-neutral-600 dark:text-neutral-300 font-medium text-[11px] md:text-sm leading-relaxed text-justify">
-                A fullstack developer based in Malang, Indonesia, specializing
-                in{" "}
+                A{" "}
                 <strong className="text-neutral-950 dark:text-white font-extrabold">
-                  front end development
+                  Fullstack development
+                </strong>{" "}
+                based in Malang, Indonesia, specializing in{" "}
+                <strong className="text-neutral-950 dark:text-white font-extrabold">
+                  Frontend development
                 </strong>
                 . I use technologies such as React, Next.js, Laravel, Tanstack
-                Start, Expo, Kotlin, and other libraries and tools to build
-                beautiful, highly-responsive web applications, integrate complex
-                services, deploy code bases, and maintain performance
+                Start, Nuxt.js, Expo, Kotlin, and other libraries and tools to
+                build beautiful, highly-responsive web applications, integrate
+                complex services, deploy code bases, and maintain performance
                 architectures.
               </p>
 
