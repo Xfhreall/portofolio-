@@ -264,10 +264,13 @@ export function AboutClient({ experiences }: { experiences: Experience[] }) {
               </span>
 
               <p className="text-neutral-600 dark:text-neutral-300 font-medium text-[11px] md:text-sm leading-relaxed text-justify">
-                A fullstack developer based in Malang, Indonesia, specializing
-                in{" "}
+                A{" "}
                 <strong className="text-neutral-950 dark:text-white font-extrabold">
-                  front end development
+                  Fullstack developer
+                </strong>{" "}
+                based in Malang, Indonesia, specializing in{" "}
+                <strong className="text-neutral-950 dark:text-white font-extrabold">
+                  Frontend development
                 </strong>
                 . I use technologies such as React, Next.js, Laravel, Tanstack
                 Start, Expo, Kotlin, and other libraries and tools to build
