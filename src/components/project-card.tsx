@@ -13,7 +13,7 @@ interface Project {
   description: string
   techStack: string[]
   url: string
-  repoUrl: string
+  repoUrl: string | null
   imageUrl: string
   role: string[]
 }

@@ -4,8 +4,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { ViewportOverlay } from "@/components/viewport-overlay";
-import { PageTransition } from "@/components/page-transition";
-import { TransitionProvider } from "@/components/transition-context";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -104,13 +102,10 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <TransitionProvider>
-            <SmoothScroll>
-              <ViewportOverlay />
-              <PageTransition />
-              {children}
-            </SmoothScroll>
-          </TransitionProvider>
+          <SmoothScroll>
+            <ViewportOverlay />
+            {children}
+          </SmoothScroll>
         </ThemeProvider>{" "}
       </body>
     </html>

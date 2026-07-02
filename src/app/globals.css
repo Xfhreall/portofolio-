@@ -102,22 +102,6 @@
   transform: translateY(0);
 }
 
-/* Page transitions overlay vertical/horizontal bars */
-.PageTransition {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  pointer-events: none;
-  display: flex;
-}
-
-.PageTransition-bar {
-  flex: 1;
-  height: 100%;
-  background-color: #000;
-  transform-origin: top;
-}
-
 /* Lenis scroll optimizations */
 html.lenis, html.lenis body {
   height: auto;

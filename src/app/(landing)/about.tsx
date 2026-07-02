@@ -85,12 +85,12 @@ export function About() {
   });
   const imageY = useSpring(
     useTransform(imageScrollProgress, [0, 1], [-20, 20]),
-    { stiffness: 300, damping: 30 }
+    { stiffness: 300, damping: 30 },
   );
   const imageScale = useTransform(
     imageScrollProgress,
     [0, 0.5, 1],
-    [1.05, 1, 1.05]
+    [1.05, 1, 1.05],
   );
 
   return (
@@ -113,9 +113,7 @@ export function About() {
           <motion.div
             style={{ y: imageY, scale: imageScale }}
             initial={{ filter: "blur(100px)", opacity: 0 }}
-            animate={
-              isInView ? { filter: "blur(0px)", opacity: 1 } : {}
-            }
+            animate={isInView ? { filter: "blur(0px)", opacity: 1 } : {}}
             transition={{ duration: 1 }}
           >
             <HoverBorderGradient
@@ -172,10 +170,7 @@ export function About() {
           viewport={{ once: true, margin: "-10% 0px" }}
         >
           {/* Greeting */}
-          <motion.div
-            variants={itemVariants}
-            className="text space-y-4"
-          >
+          <motion.div variants={itemVariants} className="text space-y-4">
             <div className="border-b pb-2 border-black/10 dark:border-white/10">
               <span className="text-2xl md:text-4xl mx-auto font-black font-bricolage tracking-tight uppercase text-neutral-800 dark:text-neutral-100">
                 Hello
@@ -194,11 +189,18 @@ export function About() {
             variants={itemVariants}
             className="text-justify leading-8 text-xs md:text-base font-medium text-neutral-600 dark:text-neutral-300"
           >
-            A fullstack developer based in Malang, Indonesia, specializing in{" "}
-            <strong className="text-neutral-900 dark:text-white font-extrabold">front end development</strong>. I use technologies such
-            as React, Laravel, Next js, Tanstack Start, Expo, Kotlin, and other technologies and
-            tools to add attractiveness, integrate systems, deploy, and
-            maintain applications. Additionally, I&apos;m an{" "}
+            A{" "}
+            <strong className="text-neutral-900 dark:text-white font-extrabold">
+              Fullstack developer
+            </strong>{" "}
+            based in Malang, Indonesia, specializing in{" "}
+            <strong className="text-neutral-900 dark:text-white font-extrabold">
+              Frontend development
+            </strong>
+            . I use technologies such as React, Laravel, Next js, Tanstack
+            Start, Nuxt js, Expo, Kotlin, and other technologies and tools to
+            add attractiveness, integrate systems, deploy, and maintain
+            applications. Additionally, I&apos;m an{" "}
             <strong className="text-neutral-900 dark:text-white font-extrabold">
               Informatics Engineering student at Brawijaya University.
             </strong>
